@@ -1,0 +1,33 @@
+/*==============================
+  HEADER
+==============================*/
+
+.header {
+}
+
+.nav-btn {
+  padding: 0;
+  height: 50px;
+  width: 50px;
+  border: 0;
+  background-color: #111;
+  position: relative;
+  padding: 15px;
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(50%);
+    width: calc(100% - 20px);
+    height: 2px;
+    background-color: #fff;
+    display: inline-block;
+  }
+}
+
+.menu {
+  &__list {
+    border: 1px solid red;
+  }
+}
