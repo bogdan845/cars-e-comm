@@ -1,33 +1,41 @@
+@import "_bootstrap-custsom";
+
+body {
+    background-color: #333 !important;
+}
+
+.post-link {
+    display: block;
+    max-width: 120px;
+    margin: auto auto 0;
+    text-align: center;
+    transition: 0.25s linear;
+    padding: 5px 10px;
+    border: 1px solid $brand-primary;
+
+    &:hover {
+        border-color: $brand-primary;
+    }
+}
+
+//.car
+
+//.filter {
+//  width: 100%;
+//}
+//
+//
+//@media (min-width: 768px) {
+//    .filter {
+//        margin: 0 15px;
+//        width: calc(33.33% - 30px);
+//    }
+//}
+
+
+
 /*==============================
   HEADER
 ==============================*/
 
-.header {
-}
 
-.nav-btn {
-  padding: 0;
-  height: 50px;
-  width: 50px;
-  border: 0;
-  background-color: #111;
-  position: relative;
-  padding: 15px;
-
-  span {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(50%);
-    width: calc(100% - 20px);
-    height: 2px;
-    background-color: #fff;
-    display: inline-block;
-  }
-}
-
-.menu {
-  &__list {
-    border: 1px solid red;
-  }
-}

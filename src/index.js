@@ -4,16 +4,20 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // router
-import { BrowserRouter as Router } from "react-router-dom";
+import {BrowserRouter as Router} from "react-router-dom";
 
+// context
+import {CarsProvider} from "./context";
 
 ReactDOM.render(
-  <Router>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Router>,
-  document.getElementById('root')
+    <CarsProvider>
+        <Router>
+            {/*<React.StrictMode>*/}
+                <App/>
+            {/*</React.StrictMode>*/}
+        </Router>
+    </CarsProvider>,
+    document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

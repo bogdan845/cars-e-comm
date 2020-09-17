@@ -1,8 +1,14 @@
 import React from "react";
 
+
+// featured posts
+import Featured from "../components/Featured";
+
 const Home = () => {
     return (
-        <main>home page</main>
+        <main>
+            <Featured/>
+        </main>
     )
 }
 
