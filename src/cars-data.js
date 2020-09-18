@@ -10,8 +10,8 @@ export default [
             "availability": true,
             "featured": true,
             "inCart": false,
-            "quantity": 1,
-            "total": 1,
+            "quantity": 0,
+            "total": 0,
             "cost": 15
         },
 
@@ -43,8 +43,8 @@ export default [
             "availability": true,
             "featured": false,
             "inCart": false,
-            "quantity": 1,
-            "total": 1,
+            "quantity": 0,
+            "total": 0,
             "cost": 10
         },
 
@@ -74,8 +74,8 @@ export default [
             "availability": true,
             "featured": false,
             "inCart": false,
-            "quantity": 1,
-            "total": 1,
+            "quantity": 0,
+            "total": 0,
             "cost": 5
         },
 
@@ -106,8 +106,8 @@ export default [
             "availability": true,
             "featured": false,
             "inCart": false,
-            "quantity": 1,
-            "total": 1,
+            "quantity": 0,
+            "total": 0,
             "cost": 5
         },
 
@@ -138,8 +138,8 @@ export default [
             "availability": false,
             "featured": true,
             "inCart": false,
-            "quantity": 1,
-            "total": 1,
+            "quantity": 0,
+            "total": 0,
             "cost": 5
         },
 
@@ -170,8 +170,8 @@ export default [
             "availability": true,
             "featured": false,
             "inCart": false,
-            "quantity": 1,
-            "total": 1,
+            "quantity": 0,
+            "total": 0,
             "cost": 5
         },
 
@@ -201,8 +201,8 @@ export default [
             "availability": true,
             "featured": false,
             "inCart": false,
-            "quantity": 1,
-            "total": 1,
+            "quantity": 0,
+            "total": 0,
             "cost": 5
         },
 
@@ -231,8 +231,8 @@ export default [
             "availability": false,
             "featured": false,
             "inCart": false,
-            "quantity": 1,
-            "total": 1,
+            "quantity": 0,
+            "total": 0,
             "cost": 5
         },
 
@@ -263,8 +263,8 @@ export default [
             "availability": true,
             "featured": false,
             "inCart": false,
-            "quantity": 1,
-            "total": 1,
+            "quantity": 0,
+            "total": 0,
             "cost": 5
         },
 
@@ -294,8 +294,8 @@ export default [
             "availability": true,
             "featured": false,
             "inCart": false,
-            "quantity": 1,
-            "total": 1,
+            "quantity": 0,
+            "total": 0,
             "cost": 5
         },
 
@@ -325,8 +325,8 @@ export default [
             "availability": true,
             "featured": true,
             "inCart": false,
-            "quantity": 1,
-            "total": 1,
+            "quantity": 0,
+            "total": 0,
             "cost": 5
         },
 
@@ -356,8 +356,8 @@ export default [
             "availability": false,
             "featured": false,
             "inCart": false,
-            "quantity": 1,
-            "total": 1,
+            "quantity": 0,
+            "total": 0,
             "cost": 5
         },
 
@@ -387,8 +387,8 @@ export default [
             "availability": false,
             "featured": false,
             "inCart": false,
-            "quantity": 1,
-            "total": 1,
+            "quantity": 0,
+            "total": 0,
             "cost": 5
         },
 
@@ -418,8 +418,8 @@ export default [
             "availability": false,
             "featured": false,
             "inCart": false,
-            "quantity": 1,
-            "total": 1,
+            "quantity": 0,
+            "total": 0,
             "cost": 5
         },
 
@@ -450,8 +450,8 @@ export default [
             "availability": false,
             "featured": false,
             "inCart": false,
-            "quantity": 1,
-            "total": 1,
+            "quantity": 0,
+            "total": 0,
             "cost": 5
         },
 

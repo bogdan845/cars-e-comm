@@ -33,11 +33,16 @@ class Posts extends React.Component {
 
                 <div className="container">
                     <div className="row">
-                        <div className="col-12">
+                        <div className="col-md-3 col-sm-12">
                             <Filter/>
                         </div>
 
-                        {getPosts}
+                        <div className="col-md-9 col-sm-12">
+                            <div className="row">
+                                {getPosts}
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </main>

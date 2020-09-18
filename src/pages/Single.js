@@ -60,7 +60,7 @@ class Single extends React.Component {
                     <div className="row">
                         <div className="col">
                             <div className="bg-dark text-light text-justify card mt-5 py-4 px-4">
-                                <h3 className="text-center text-primary card-title mb-4">{mark}: <span
+                                <h3 className="text-center text-light card-title mb-4">{mark}: <span
                                     className="font-italic font-weight-light">{model}</span></h3>
                                 <img className="mb-4 img-fluid" src={images[0]}/>
                                 <p>{description}</p>

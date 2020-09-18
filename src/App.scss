@@ -4,38 +4,22 @@ body {
     background-color: #333 !important;
 }
 
-.post-link {
-    display: block;
-    max-width: 120px;
-    margin: auto auto 0;
-    text-align: center;
-    transition: 0.25s linear;
-    padding: 5px 10px;
-    border: 1px solid $brand-primary;
+.zoom-box {
+    overflow: hidden;
 
-    &:hover {
-        border-color: $brand-primary;
+    img {
+        transition: 0.25s linear;
+        z-index: 0
+    }
+
+    &:hover img {
+        transform: scale(1.1, 1.1);
     }
 }
 
-//.car
-
-//.filter {
-//  width: 100%;
-//}
-//
-//
-//@media (min-width: 768px) {
-//    .filter {
-//        margin: 0 15px;
-//        width: calc(33.33% - 30px);
-//    }
-//}
-
-
-
-/*==============================
-  HEADER
-==============================*/
-
-
+.cart-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}

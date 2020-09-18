@@ -15,6 +15,8 @@ class CarsProvider extends React.Component {
             posts: [],
             featured: [],
             sorted: [],
+            countCartItems: 0,
+            totalCost: 0,
 
             // filters
             country: {},
@@ -24,10 +26,10 @@ class CarsProvider extends React.Component {
         }
     }
 
+
     componentDidMount() {
         const getData = this.prepareData(carsData);
         const getFeatured = getData.filter(item => item.featured === true);
-
 
         this.setState({
             posts: getData,
@@ -35,6 +37,7 @@ class CarsProvider extends React.Component {
             sorted: getData,
         });
     }
+
 
     prepareData = (data) => {
         const dataStructure = data.map(item => {
@@ -90,8 +93,6 @@ class CarsProvider extends React.Component {
 
         let tempData = [...getData];
 
-
-
         let sortByCountries = [];
         for (const key in country) {
             if (country[key]) {
@@ -104,21 +105,102 @@ class CarsProvider extends React.Component {
         }
         sortByCountries.length > 0 ? tempData = sortByCountries : tempData = [...getData];
 
-
         if (mark !== "All") {
             tempData = tempData.filter(item => item.mark === mark)
         }
-
 
         if (availability) {
             tempData = tempData.filter(item => item.availability === true);
         }
 
-
         this.setState({
             sorted: tempData
         })
     }
+
+
+    getItemById = (id) => {
+        const item = this.state.posts.find(item => item.id === id);
+        return item;
+    }
+
+
+    handleAddToCart = (id) => {
+        const {posts: getData} = this.state;
+        const index = getData.indexOf(this.getItemById(id))
+        const post = getData[index];
+
+        post.inCart = true;
+        post.quantity = 1;
+        post.total = post.cost * post.quantity;
+
+        this.setState(prevState => {
+            return {
+                posts: getData,
+                countCartItems: prevState.countCartItems + 1
+            }
+        }, this.countTotalCost)
+    }
+
+
+    handleRemoveFromCart = (id) => {
+        const {posts: getData} = this.state;
+        const index = getData.indexOf(this.getItemById(id))
+        const post = getData[index];
+
+        post.inCart = false;
+        post.quantity = 0;
+
+        this.setState(prevState => {
+            return {
+                posts: getData,
+                countCartItems: prevState.countCartItems - 1
+            }
+        }, this.countTotalCost)
+    }
+
+
+    handleAddQuantity = (id) => {
+        const {posts: getData} = this.state;
+        const index = getData.indexOf(this.getItemById(id));
+        const post = getData[index];
+
+        post.quantity++;
+        post.total = post.quantity * post.cost;
+
+        this.setState({
+            posts: getData
+        }, this.countTotalCost)
+    }
+
+
+    handleRemoveQuantity = (id) => {
+        const {posts: getData} = this.state;
+        const index = getData.indexOf(this.getItemById(id));
+        const post = getData[index];
+
+        post.quantity--;
+
+        if (post.quantity === 0) {
+            this.handleRemoveFromCart(id)
+        } else {
+            post.total = post.cost * post.quantity;
+        }
+
+        this.setState({
+            posts: getData
+        }, this.countTotalCost)
+    }
+
+
+    countTotalCost = () => {
+        let total = 0
+        const getTotal = this.state.posts.map(item => total += item.quantity * item.cost);
+        this.setState({
+            totalCost: total
+        });
+    }
+
 
     render() {
         return (
@@ -126,6 +208,10 @@ class CarsProvider extends React.Component {
                 ...this.state,
                 getPostBySlug: this.getPostBySlug,
                 handleChange: this.handleChange,
+                handleAddToCart: this.handleAddToCart,
+                handleRemoveFromCart: this.handleRemoveFromCart,
+                handleAddQuantity: this.handleAddQuantity,
+                handleRemoveQuantity: this.handleRemoveQuantity,
             }}>
                 {this.props.children}
             </CarsContext.Provider>
@@ -134,5 +220,4 @@ class CarsProvider extends React.Component {
 }
 
 const CarsConsumer = CarsContext.Consumer;
-
 export {CarsContext, CarsProvider, CarsConsumer};

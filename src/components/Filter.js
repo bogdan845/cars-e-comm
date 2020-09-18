@@ -54,77 +54,71 @@ class Filter extends React.Component {
 
         return (
 
+            <form className="mb-sm-5">
 
-            <form>
-                <div className="form-group row mb-0">
-                    <div className="col-md-4 col-sm-12 mb-4">
-                        <h4 className="text-light">Select mark</h4>
-                        <select
-                            className="form-control"
-                            name="mark"
-                            value={mark}
-                            onChange={handleChange}
-                        >
-                            {getMarks}
-                        </select>
-                    </div>
+                <h3 className="text-light mb-4 text-sm-center text-md-left">Filters</h3>
+                <div className="form-group ">
+                    <h5 className="text-light">Select mark</h5>
+                    <select
+                        className="form-control"
+                        name="mark"
+                        value={mark}
+                        onChange={handleChange}
+                    >
+                        {getMarks}
+                    </select>
+                </div>
 
-                    <div className="col-md-4 col-sm-12 mb-4">
-                        <h4 className="text-light">Sort by countries</h4>
-                        {getCountries}
-                    </div>
+                <div className="form-group">
+                    <h5 className="text-light">Sort by countries</h5>
+                    {getCountries}
+                </div>
 
-                    <div className="col-md-4 col-sm-12 mb-4">
-                        <h4 className="text-light">Sort by availability</h4>
-                        <input
-                            type="checkbox"
-                            name="availability"
-                            checked={availability}
-                            onChange={handleChange}
-                        />
-                        <label className="ml-2 text-light">Availability</label>
-                    </div>
+                <div className="form-group">
+                    <h5 className="text-light">Sort by availability</h5>
+                    <input
+                        type="checkbox"
+                        name="availability"
+                        checked={availability}
+                        onChange={handleChange}
+                    />
+                    <label className="ml-2 text-light">Availability</label>
                 </div>
             </form>
 
-            // <form className="">
-            //     <div className="row">
-            //
-            //         <div className="col-md-4 col-sm-12">
-            //             <div className="form-group">
-            //                 <h4 className="text-light">Select mark</h4>
-            //                 <select
-            //                     className="form-control"
-            //                     name="mark"
-            //                     value={mark}
-            //                     onChange={handleChange}
-            //                 >
-            //                     {getMarks}
-            //                 </select>
-            //             </div>
+
+            // <form>
+            //     <div className="form-group row mb-0">
+            //         <div className="col-md-4 col-sm-12 mb-4">
+            //             <h4 className="text-light">Select mark</h4>
+            //             <select
+            //                 className="form-control"
+            //                 name="mark"
+            //                 value={mark}
+            //                 onChange={handleChange}
+            //             >
+            //                 {getMarks}
+            //             </select>
             //         </div>
             //
-            //         <div className="col-md-4 col-sm-12">
-            //             <div className="form-group">
-            //                 <h4 className="text-light">Sort by countries</h4>
-            //                 {getCountries}
-            //             </div>
+            //         <div className="col-md-4 col-sm-12 mb-4">
+            //             <h4 className="text-light">Sort by countries</h4>
+            //             {getCountries}
             //         </div>
             //
-            //         <div className="col-md-4 col-sm-12">
-            //             <div className="form-group ">
-            //                 <h4 className="text-light">Sort by availability</h4>
-            //                 <input
-            //                     type="checkbox"
-            //                     name="availability"
-            //                     checked={availability}
-            //                     onChange={handleChange}
-            //                 />
-            //                 <label className="ml-2 text-light">Availability</label>
-            //             </div>
+            //         <div className="col-md-4 col-sm-12 mb-4">
+            //             <h4 className="text-light">Sort by availability</h4>
+            //             <input
+            //                 type="checkbox"
+            //                 name="availability"
+            //                 checked={availability}
+            //                 onChange={handleChange}
+            //             />
+            //             <label className="ml-2 text-light">Availability</label>
             //         </div>
             //     </div>
             // </form>
+
         )
     }
 }

@@ -2,8 +2,18 @@ import React from "react";
 import {Link} from "react-router-dom"
 import {FaShoppingBag} from "react-icons/fa";
 
+// hook for context
+import {useContext} from "react";
+
+// context
+import {CarsContext} from "../context";
 
 const Navbar = () => {
+
+    const context = useContext(CarsContext);
+
+    const {countCartItems} = context;
+
     return (
         <header className="header py-2">
             <div className="container">
@@ -22,7 +32,10 @@ const Navbar = () => {
                         </nav>
                     </div>
                     <div className="col-4">
-                        <Link to="/cart"><FaShoppingBag/></Link>
+                        <Link to="/cart">
+                            <FaShoppingBag/>
+                            <span>{countCartItems}</span>
+                        </Link>
                     </div>
                 </div>
             </div>
