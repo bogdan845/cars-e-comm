@@ -17,6 +17,7 @@ class CarsProvider extends React.Component {
             sorted: [],
             countCartItems: 0,
             totalCost: 0,
+            menuOpen: false,
 
             // filters
             country: {},
@@ -26,16 +27,26 @@ class CarsProvider extends React.Component {
         }
     }
 
+    handleWindowResize = () => {
+
+    }
+
 
     componentDidMount() {
         const getData = this.prepareData(carsData);
         const getFeatured = getData.filter(item => item.featured === true);
+
+        window.addEventListener('resize', this.handleWindowResize)
 
         this.setState({
             posts: getData,
             featured: getFeatured,
             sorted: getData,
         });
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleWindowResize);
     }
 
 
@@ -52,6 +63,15 @@ class CarsProvider extends React.Component {
             return readyData
         });
         return dataStructure;
+    }
+
+
+    openCloseMenu = () => {
+        this.setState(prevState => {
+            return {
+                menuOpen: !prevState.menuOpen
+            }
+        })
     }
 
 
@@ -131,6 +151,7 @@ class CarsProvider extends React.Component {
         const post = getData[index];
 
         post.inCart = true;
+        post.clicked = true;
         post.quantity = 1;
         post.total = post.cost * post.quantity;
 
@@ -206,6 +227,7 @@ class CarsProvider extends React.Component {
         return (
             <CarsContext.Provider value={{
                 ...this.state,
+                openCloseMenu: this.openCloseMenu,
                 getPostBySlug: this.getPostBySlug,
                 handleChange: this.handleChange,
                 handleAddToCart: this.handleAddToCart,
@@ -221,3 +243,5 @@ class CarsProvider extends React.Component {
 
 const CarsConsumer = CarsContext.Consumer;
 export {CarsContext, CarsProvider, CarsConsumer};
+
+

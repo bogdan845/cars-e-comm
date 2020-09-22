@@ -1,8 +1,299 @@
-@import "_bootstrap-custsom";
+//@import "_bootstrap-custsom";
+//@import "node_modules/bootstrap/scss/functions";
+//@import "node_modules/bootstrap/scss/variables";
+//@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
 
 body {
     background-color: #333 !important;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
 }
+
+
+/*==============================
+    REPEATABLE
+==============================*/
+
+.b-section {
+    padding: 50px 0 25px;
+}
+
+.b-title {
+    text-align: center;
+    color: $light;
+
+    span {
+        position: relative;
+        padding-bottom: 10px;
+
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: $primary;
+        }
+    }
+}
+
+.b-link {
+    display: inline-block;
+    padding: 5px 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: 0.25s ease-in-out;
+    background-color: $primary;
+    color: $light;
+    letter-spacing: 0.1em;
+    border: 2px solid transparent;
+
+    &:hover {
+        text-decoration: none;
+        color: $light;
+        border-color: $light;
+    }
+}
+
+.not-found {
+    color: $warning;
+    font-size: 24px;
+    text-align: center;
+}
+
+
+/*==============================
+    MENU
+==============================*/
+
+// list
+.menu {
+    position: absolute;
+    z-index: 100;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 61px);
+    top: 61px;
+    transition: 0.25s ease-in;
+
+    @include media-breakpoint-up(md) {
+        position: static;
+        width: auto;
+        height: auto;
+    }
+
+
+    &.active {
+        left: 0;
+        background: rgba(0,0,0,0.8);
+
+
+        @include media-breakpoint-up(md) {
+            background: transparent;
+        }
+    }
+
+
+    &__list {
+        list-style-type: none;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 15px;
+
+        @include media-breakpoint-up(md) {
+            flex-direction: row;
+            justify-content: flex-start;
+            padding: 0;
+        }
+
+        li {
+
+            @include media-breakpoint-up(md) {
+                margin: 20px;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+
+            > a {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+// icon
+.menu-icon {
+    position: relative;
+    width: 30px;
+    height: 24px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+
+    &:focus,
+    &:hover,
+    &:active {
+        outline: none;
+    }
+
+    //span {
+    //    position: absolute;
+    //    top: 50%;
+    //    left: 0;
+    //    transform: rotateY(-50%);
+    //    width: 100%;
+    //    height: 2px;
+    //    background-color: $primary;
+    //    transition: 0.25s linear;
+
+    //&:after,
+    //&:before {
+    //    content: "";
+    //    position: absolute;
+    //    width: 100%;
+    //    height: inherit;
+    //    background-color: $primary;
+    //    left: 0;
+    //    transition: 0.25s linear, top 0.25s linear 0.25s;
+    //}
+    //
+    //&:before {
+    //    top: -10px;
+    //    transform: rotateZ(0);
+    //}
+    //
+    //&:after {
+    //    top: 10px;
+    //    transform: rotateZ(0);
+    //}
+    //}
+
+
+    span {
+        position: absolute;
+        height: 2px;
+        background-color: $primary;
+        left: 0;
+        transition: 0.25s linear;
+
+
+        &:nth-child(2) {
+            width: 100%;
+            top: calc(50% - 1px);
+        }
+
+        &:nth-child(1),
+        &:nth-child(3) {
+            width: 50%
+        }
+
+
+        &:nth-child(1) {
+            top: 0;
+        }
+
+        &:nth-child(3) {
+            bottom: 0
+        }
+    }
+}
+
+.menu-icon.active {
+
+    span:nth-child(2) {
+        left: -50px;
+        opacity: 0;
+    }
+
+    span:nth-child(1) {
+        top: 11px;
+        transform: rotateZ(45deg);
+        width: 100%;
+    }
+
+    span:nth-child(3) {
+        bottom: 11px;
+        transform: rotateZ(-45deg);
+        width: 100%;
+    }
+
+
+    //span {
+    //    background-color: transparent;
+    //
+    //    &:before {
+    //        top: 0;
+    //        transform: rotateZ(45deg);
+    //        transition: 0.25s linear, transform 0.25s linear 0.25s;
+    //    }
+    //
+    //    &:after {
+    //        top: 0;
+    //        transform: rotateZ(-45deg);
+    //        transition: 0.25s linear, transform 0.25s linear 0.25s;
+    //    }
+    //}
+}
+
+
+/*==============================
+    HERO
+==============================*/
+
+.hero-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-blend-mode: overlay;
+    background: center no-repeat url("./images/front-image.jpg"), linear-gradient(to right, $info, $dark);
+    background-size: cover;
+    min-height: 100vh;
+}
+
+
+/*==============================
+    BANNER
+==============================*/
+
+.banner {
+
+    &__content {
+        padding: 15px 15px 30px;
+        max-width: 500px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    &__title {
+        text-transform: uppercase;
+    }
+
+    &__sub {
+
+    }
+}
+
+
+/*==============================
+    HOVER FOR POST IMAGE
+==============================*/
 
 .zoom-box {
     overflow: hidden;
@@ -17,9 +308,52 @@ body {
     }
 }
 
+
+/*==============================
+    BUTTON FOR POST
+==============================*/
+
 .cart-btn {
     position: absolute;
     right: 0;
     top: 0;
     z-index: 10;
+}
+
+
+/*==============================
+    CART LINK
+==============================*/
+
+.cart-link {
+    font-size: 30px;
+    position: relative;
+    padding-right: 10px;
+
+    span {
+        color: $info;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 14px;
+        font-weight: bold;
+    }
+}
+
+
+/*==============================
+    FOOTER
+==============================*/
+
+.footer {
+    margin-top: auto;
+    border-top: 2px solid $light;
+    padding: 30px 0;
+}
+
+
+@include media-breakpoint-up(sm) {
+    //body {
+    //    background-color: red !important;
+    //}
 }

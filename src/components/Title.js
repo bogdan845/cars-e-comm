@@ -3,14 +3,13 @@ import React from "react";
 const Title = ({title}) => {
 
     if (!title) {
-        return (
-            <>
-            </>
-        )
+        return ("")
     }
 
     return (
-        <h2 className="text-center text-light mb-4">{title}</h2>
+        <h2 className="b-title mb-5">
+            <span>{title}</span>
+        </h2>
     )
 }
 

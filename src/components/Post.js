@@ -16,11 +16,14 @@ const Post = ({data}) => {
 
     const context = useContext(CarsContext);
 
-    const {handleAddToCart, handleRemoveFromCart} = context;
+    const {
+        handleAddToCart,
+        handleRemoveFromCart
+    } = context;
 
     return (
         <div className="col-md-4 col-sm-12 mb-5">
-            <div className="card h-100 bg-dark border-0 position-relative">
+            <div  className="card h-100 bg-dark border-0 position-relative">
                 {data.inCart ?
                     <button
                         type="button"
@@ -42,13 +45,11 @@ const Post = ({data}) => {
                     <img src={data.images[0]} className="card-image-top img-fluid" alt={data.model}/>
                 </Link>
 
+
                 <div className="card-body text-center">
                     <h5 className="text-light card-title mb-1">{data.mark}:
                         <span className="font-italic font-weight-light">{data.model}</span>
                     </h5>
-
-
-
                 </div>
 
                 <div className="border-0 card-footer text-center">
