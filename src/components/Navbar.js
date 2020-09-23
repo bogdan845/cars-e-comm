@@ -8,7 +8,7 @@ import {useContext} from "react";
 // context
 import {CarsContext} from "../context";
 
-
+// component
 const Navbar = () => {
 
     const context = useContext(CarsContext);
@@ -17,10 +17,13 @@ const Navbar = () => {
         countCartItems,
         openCloseMenu,
         menuOpen,
+        isMobileNav
     } = context;
+
 
     return (
         <header className="header py-2">
+
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-8 position-static">
@@ -36,11 +39,11 @@ const Navbar = () => {
                         <nav className={menuOpen ? "menu active" : "menu"}>
                             <ul className="menu__list">
                                 <li className="mb-2">
-                                    <Link onClick={openCloseMenu} to="/">Home</Link>
+                                    <Link onClick={isMobileNav ? openCloseMenu : null} to="/">Home</Link>
                                 </li>
 
                                 <li className="mb-2">
-                                    <Link onClick={openCloseMenu} to="/cars">Cars</Link>
+                                    <Link onClick={isMobileNav ? openCloseMenu : null} to="/cars">Cars</Link>
                                 </li>
                             </ul>
                         </nav>
@@ -51,13 +54,6 @@ const Navbar = () => {
                             <span>{countCartItems}</span>
                         </Link>
 
-                        {/*<button*/}
-                        {/*    onClick={openCloseMenu}*/}
-                        {/*    className={menuOpen ? "active menu-icon" : "menu-icon"}>*/}
-                        {/*    <span></span>*/}
-                        {/*    <span></span>*/}
-                        {/*    <span></span>*/}
-                        {/*</button>*/}
                     </div>
                 </div>
             </div>

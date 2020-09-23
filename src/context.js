@@ -15,20 +15,26 @@ class CarsProvider extends React.Component {
             posts: [],
             featured: [],
             sorted: [],
+
+            // cart
             countCartItems: 0,
             totalCost: 0,
+
+            // menu
             menuOpen: false,
+            isMobileNav: "",
 
             // filters
             country: {},
             mark: "All",
             availability: false
-
         }
-    }
 
-    handleWindowResize = () => {
 
+        this.timer = null;
+
+        this.setNavbarStyle = this.setNavbarStyle.bind(this);
+        this.applyNavbarStyle = this.applyNavbarStyle.bind(this);
     }
 
 
@@ -36,7 +42,8 @@ class CarsProvider extends React.Component {
         const getData = this.prepareData(carsData);
         const getFeatured = getData.filter(item => item.featured === true);
 
-        window.addEventListener('resize', this.handleWindowResize)
+        window.addEventListener("resize", this.applyNavbarStyle);
+        this.setNavbarStyle();
 
         this.setState({
             posts: getData,
@@ -45,8 +52,34 @@ class CarsProvider extends React.Component {
         });
     }
 
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log(this.state.isMobileNav);
+    }
+
+
     componentWillUnmount() {
-        window.removeEventListener('resize', this.handleWindowResize);
+        window.removeEventListener("resize", this.applyNavbarStyle);
+    }
+
+    setNavbarStyle = () => {
+        this.setState({
+            isMobileNav: window.innerWidth < 768 ? true : false,
+            menuOpen: false
+        });
+    }
+
+
+    applyNavbarStyle = () => {
+        let _this = this;
+
+        if (this.timer) {
+            clearTimeout(this.timer);
+        }
+
+        this.timer = setTimeout( ()=> {
+            _this.setNavbarStyle();
+        }, 100);
     }
 
 
@@ -215,7 +248,7 @@ class CarsProvider extends React.Component {
 
 
     countTotalCost = () => {
-        let total = 0
+        let total = 0;
         const getTotal = this.state.posts.map(item => total += item.quantity * item.cost);
         this.setState({
             totalCost: total
@@ -243,5 +276,3 @@ class CarsProvider extends React.Component {
 
 const CarsConsumer = CarsContext.Consumer;
 export {CarsContext, CarsProvider, CarsConsumer};
-
-

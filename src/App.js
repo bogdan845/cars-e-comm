@@ -8,7 +8,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // router
 import {Switch, Route} from "react-router-dom"
 
-
 // navbar
 import Navbar from "./components/Navbar";
 
