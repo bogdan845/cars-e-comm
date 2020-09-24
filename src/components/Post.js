@@ -23,7 +23,8 @@ const Post = ({data}) => {
 
     return (
         <div className="col-md-4 col-sm-12 mb-5">
-            <div  className="card h-100 bg-dark border-0 position-relative">
+
+            <div className="card h-100 bg-dark border-0 position-relative" style={{}}>
                 {data.inCart ?
                     <button
                         type="button"

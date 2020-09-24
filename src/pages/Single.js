@@ -51,7 +51,7 @@ class Single extends React.Component {
             acceleration,
             maxSpeed,
             transmission,
-            availability
+            isAvailable
         } = post;
 
         return (
@@ -74,7 +74,7 @@ class Single extends React.Component {
                                     <p><span className="text-info">Transmission: </span> {transmission ? transmission : "Not specified"}</p>
                                 </div>
 
-                                <h5 className="mb-0"><span className="text-primary">Availability:</span> {availability ? <span className="text-info">Yes</span> : <span className="text-warning">Not Available</span>}</h5>
+                                <h5 className="mb-0"><span className="text-primary">Availability:</span> {isAvailable ? <span className="text-info">Yes</span> : <span className="text-warning">Not Available</span>}</h5>
 
 
                             </div>

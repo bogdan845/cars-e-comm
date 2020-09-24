@@ -272,6 +272,49 @@ body {
     CART LINK
 ==============================*/
 
+.cart {
+
+    &__qnty-btns {
+        display: flex;
+        flex-direction: row;
+        max-width: 120px;
+        border: 1px solid $light;
+        justify-content: space-around;
+        align-items: center;
+        margin-left: auto;
+        padding: 0 5px;
+    }
+
+
+    &__qnty {
+        padding: 5px 10px;
+        color: $primary;
+        font-size: 20px
+    }
+
+    &__increase,
+    &__decrease {
+        width: 15px;
+        font-size: 20px;
+        padding: 0;
+        border: 0;
+        outline: none;
+        background: transparent;
+        display: inline-block;
+        color: $info;
+        font-weight: bold;
+
+        &:focus,
+        &:hover,
+        &:active {
+            outline: none;
+            border: none;
+        }
+    }
+
+}
+
+
 .cart-link {
     font-size: 30px;
     position: relative;
