@@ -163,7 +163,7 @@ class CarsProvider extends React.Component {
         }
 
         if (availability) {
-            tempData = tempData.filter(item => item.availability === true);
+            tempData = tempData.filter(item => item.isAvailable === true);
         }
 
         this.setState({
@@ -178,6 +178,19 @@ class CarsProvider extends React.Component {
     }
 
 
+    deleteAddToCartMessage = (id, className, text, mark, model) => {
+        const createMessage = document.createElement('div');
+        createMessage.className = `b-cart-message ${className}`;
+        createMessage.innerText = `${mark} ${model} ${text}`;
+
+        setTimeout( () => {
+            const getMessage = document.querySelector(".b-cart-message");
+            getMessage.remove();
+        }, 2500);
+        document.body.appendChild(createMessage);
+    }
+
+
     handleAddToCart = (id) => {
         const {posts: getData} = this.state;
         const index = getData.indexOf(this.getItemById(id))
@@ -185,8 +198,10 @@ class CarsProvider extends React.Component {
 
         post.inCart = true;
         post.clicked = true;
-        post.quantity = 1;
-        post.total = post.cost * post.quantity;
+        post.amount = 1;
+        post.total = post.cost * post.amount;
+
+        this.deleteAddToCartMessage(id, "added", "Added to cart", post.mark, post.model);
 
         this.setState(prevState => {
             return {
@@ -203,7 +218,9 @@ class CarsProvider extends React.Component {
         const post = getData[index];
 
         post.inCart = false;
-        post.quantity = 0;
+        post.amount = 0;
+
+        this.deleteAddToCartMessage(id, "removed", "Removed from cart", post.mark, post.model);
 
         this.setState(prevState => {
             return {
@@ -214,13 +231,13 @@ class CarsProvider extends React.Component {
     }
 
 
-    handleAddQuantity = (id) => {
+    handleIncreaseAmount = (id) => {
         const {posts: getData} = this.state;
         const index = getData.indexOf(this.getItemById(id));
         const post = getData[index];
 
-        post.quantity++;
-        post.total = post.quantity * post.cost;
+        post.amount++;
+        post.total = post.amount * post.cost;
 
         this.setState({
             posts: getData
@@ -228,17 +245,17 @@ class CarsProvider extends React.Component {
     }
 
 
-    handleRemoveQuantity = (id) => {
+    handleDecreaseAmount = (id) => {
         const {posts: getData} = this.state;
         const index = getData.indexOf(this.getItemById(id));
         const post = getData[index];
 
-        post.quantity--;
+        post.amount--;
 
-        if (post.quantity === 0) {
+        if (post.amount === 0) {
             this.handleRemoveFromCart(id)
         } else {
-            post.total = post.cost * post.quantity;
+            post.total = post.cost * post.amount;
         }
 
         this.setState({
@@ -249,7 +266,7 @@ class CarsProvider extends React.Component {
 
     countTotalCost = () => {
         let total = 0;
-        const getTotal = this.state.posts.map(item => total += item.quantity * item.cost);
+        const getTotal = this.state.posts.map(item => total += item.amount * item.cost);
         this.setState({
             totalCost: total
         });
@@ -265,8 +282,8 @@ class CarsProvider extends React.Component {
                 handleChange: this.handleChange,
                 handleAddToCart: this.handleAddToCart,
                 handleRemoveFromCart: this.handleRemoveFromCart,
-                handleAddQuantity: this.handleAddQuantity,
-                handleRemoveQuantity: this.handleRemoveQuantity,
+                handleIncreaseAmount: this.handleIncreaseAmount,
+                handleDecreaseAmount: this.handleDecreaseAmount,
             }}>
                 {this.props.children}
             </CarsContext.Provider>

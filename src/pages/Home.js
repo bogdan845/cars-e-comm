@@ -12,6 +12,13 @@ import AboutUs from "../components/AboutUs";
 // featured posts
 import Featured from "../components/Featured";
 
+// link
+import {Link} from "react-router-dom";
+
+{/*{link ?*/}
+{/*
+{/*}*/}
+
 
 const Home = () => {
     return (
@@ -19,10 +26,12 @@ const Home = () => {
 
             <Hero>
                 <Banner
-                    title="Cars for rent"
-                    subTitle="som sub"
-                    link="cars"
-                />
+                    title="Contrary to popular"
+                    subTitle="Ipsum sapien"
+                    link="cars page"
+                >
+                    <Link className="b-link" to="/cars">cars page</Link>
+                </Banner>
             </Hero>
 
             <AboutUs/>

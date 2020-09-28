@@ -1,20 +1,13 @@
 import React from "react";
 
-// link
-import {Link} from "react-router-dom";
-
-const Banner = ({ title, subTitle, link}) => {
+const Banner = ({title, subTitle, children}) => {
 
     return (
-            <div className="banner__content text-center text-light">
-                <h2 className="banner__title mb-3">{title}</h2>
-                <h4 className="banner__sub mb-5">{subTitle}</h4>
-
-                { link ?
-                    <Link className="b-link" to={link === "home" ? "/" : link}>{link === "home" ? "back to home" : link}</Link> :
-                    ""
-                }
-            </div>
+        <div className="banner__content ">
+            {title ? <h2 className="text-uppercase mb-3">{title}</h2> : ""}
+            {subTitle ? <h4 className="mb-5">{subTitle}</h4> : ""}
+            {children}
+        </div>
     )
 }
 

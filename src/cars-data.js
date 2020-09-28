@@ -9,8 +9,8 @@ export default [
             "country": "Germany",
             "isAvailable": true,
             "featured": true,
-            "inCart": false,
-            "quantity": 0,
+            "inCart": true,
+            "amount": 0,
             "total": 0,
             "cost": 15
         },
@@ -43,7 +43,7 @@ export default [
             "isAvailable": true,
             "featured": false,
             "inCart": false,
-            "quantity": 0,
+            "amount": 0,
             "total": 0,
             "cost": 10
         },
@@ -74,7 +74,7 @@ export default [
             "isAvailable": true,
             "featured": false,
             "inCart": false,
-            "quantity": 0,
+            "amount": 0,
             "total": 0,
             "cost": 5
         },
@@ -106,7 +106,7 @@ export default [
             "isAvailable": true,
             "featured": false,
             "inCart": false,
-            "quantity": 0,
+            "amount": 0,
             "total": 0,
             "cost": 5
         },
@@ -138,7 +138,7 @@ export default [
             "isAvailable": false,
             "featured": true,
             "inCart": false,
-            "quantity": 0,
+            "amount": 0,
             "total": 0,
             "cost": 5
         },
@@ -170,7 +170,7 @@ export default [
             "isAvailable": true,
             "featured": false,
             "inCart": false,
-            "quantity": 0,
+            "amount": 0,
             "total": 0,
             "cost": 5
         },
@@ -201,7 +201,7 @@ export default [
             "isAvailable": true,
             "featured": false,
             "inCart": false,
-            "quantity": 0,
+            "amount": 0,
             "total": 0,
             "cost": 5
         },
@@ -231,7 +231,7 @@ export default [
             "isAvailable": false,
             "featured": false,
             "inCart": false,
-            "quantity": 0,
+            "amount": 0,
             "total": 0,
             "cost": 5
         },
@@ -263,7 +263,7 @@ export default [
             "isAvailable": true,
             "featured": false,
             "inCart": false,
-            "quantity": 0,
+            "amount": 0,
             "total": 0,
             "cost": 5
         },
@@ -294,7 +294,7 @@ export default [
             "isAvailable": true,
             "featured": false,
             "inCart": false,
-            "quantity": 0,
+            "amount": 0,
             "total": 0,
             "cost": 5
         },
@@ -325,7 +325,7 @@ export default [
             "isAvailable": true,
             "featured": true,
             "inCart": false,
-            "quantity": 0,
+            "amount": 0,
             "total": 0,
             "cost": 5
         },
@@ -356,7 +356,7 @@ export default [
             "isAvailable": false,
             "featured": false,
             "inCart": false,
-            "quantity": 0,
+            "amount": 0,
             "total": 0,
             "cost": 5
         },
@@ -387,7 +387,7 @@ export default [
             "isAvailable": false,
             "featured": false,
             "inCart": false,
-            "quantity": 0,
+            "amount": 0,
             "total": 0,
             "cost": 5
         },
@@ -418,7 +418,7 @@ export default [
             "isAvailable": false,
             "featured": false,
             "inCart": false,
-            "quantity": 0,
+            "amount": 0,
             "total": 0,
             "cost": 5
         },
@@ -450,7 +450,7 @@ export default [
             "isAvailable": false,
             "featured": false,
             "inCart": false,
-            "quantity": 0,
+            "amount": 0,
             "total": 0,
             "cost": 5
         },

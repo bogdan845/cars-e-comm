@@ -4,11 +4,15 @@
 @import "~bootstrap/scss/mixins";
 
 
+// custom colors
+$light-gray: #E7E7E7;
+
+
 body {
-    background-color: #333 !important;
+    //background-color: #333 !important;
+    color: $dark !important;
     display: flex;
     flex-direction: column;
-    height: auto;
     min-height: 100vh;
 }
 
@@ -17,17 +21,21 @@ body {
     REPEATABLE
 ==============================*/
 
+
+// section padding
 .b-section {
-    padding: 50px 0 25px;
+    padding: 70px 0 0;
 }
 
+// title
 .b-title {
     text-align: center;
-    color: $light;
+    color: $dark;
 
     span {
         position: relative;
         padding-bottom: 10px;
+        display: inline-block;
 
         &:after {
             content: "";
@@ -41,11 +49,13 @@ body {
     }
 }
 
+// link
 .b-link {
     display: inline-block;
     padding: 5px 20px;
     font-size: 20px;
     text-transform: uppercase;
+    text-decoration: none !important;
     transition: 0.25s ease-in-out;
     background-color: $primary;
     color: $light;
@@ -53,16 +63,46 @@ body {
     border: 2px solid transparent;
 
     &:hover {
-        text-decoration: none;
-        color: $light;
-        border-color: $light;
+        background-color: transparent;
+        color: $primary;
+        border-color: $primary;
     }
 }
 
-.not-found {
-    color: $warning;
+// not found block
+.b-not-found {
+    background-color: $light-gray;
+    color: $dark;
     font-size: 24px;
     text-align: center;
+    padding: 30px 0;
+
+    .b-link {
+        margin-top: 10px;
+    }
+}
+
+// when click on add / remove from cart
+.b-cart-message {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    padding: 20px 15px;
+    font-size: 18px;
+    font-weight: 600;
+    z-index: 100;
+
+    &.added {
+        background: $success;
+        color: $light;
+    }
+
+    &.removed {
+        background-color: $dark;
+        color: $warning;
+    }
 }
 
 
@@ -89,7 +129,7 @@ body {
 
     &.active {
         left: 0;
-        background: rgba(0,0,0,0.8);
+        background: rgba(0, 0, 0, 0.8);
 
 
         @include media-breakpoint-up(md) {
@@ -149,13 +189,13 @@ body {
         outline: none;
     }
 
+    // icon elements
     span {
         position: absolute;
         height: 2px;
         background-color: $primary;
         left: 0;
         transition: 0.25s linear;
-
 
         &:nth-child(2) {
             width: 100%;
@@ -167,7 +207,6 @@ body {
             width: 50%
         }
 
-
         &:nth-child(1) {
             top: 0;
         }
@@ -178,7 +217,7 @@ body {
     }
 }
 
-// icon active
+// menu active
 .menu-icon.active {
 
     span:nth-child(2) {
@@ -204,6 +243,8 @@ body {
     HERO
 ==============================*/
 
+
+// also available styled component for this section
 .hero-home {
     display: flex;
     align-items: center;
@@ -219,6 +260,7 @@ body {
     BANNER
 ==============================*/
 
+
 .banner {
 
     &__content {
@@ -226,82 +268,254 @@ body {
         max-width: 500px;
         width: 100%;
         background-color: rgba(0, 0, 0, 0.7);
-    }
-
-    &__title {
-        text-transform: uppercase;
-    }
-
-    &__sub {
-
+        text-align: center;
+        color: $light
     }
 }
 
 
 /*==============================
-    HOVER FOR POST IMAGE
+    ABOUT US
 ==============================*/
 
-.zoom-box {
-    overflow: hidden;
 
-    img {
+.about {
+
+    &__content {
+        font-size: 20px;
+        text-align: justify;
+    }
+}
+
+
+/*==============================
+    FEATURED
+==============================*/
+
+
+.featured {
+    padding-bottom: 70px;
+}
+
+
+/*==============================
+    POST
+==============================*/
+
+
+.post-box {
+    position: relative;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: $light-gray;
+    padding-bottom: 25px;
+
+    // style for inCart = true
+    &.in-cart {
+        background-color: $dark;
+        color: $light;
+    }
+
+    // image wrapper (for hover effect)
+    &__img-wrap {
+        overflow: hidden;
+        display: block;
+    }
+
+    // image
+    &__img {
+        max-width: 100%;
+        height: auto;
         transition: 0.25s linear;
-        z-index: 0
+
+        &:hover {
+            transform: scale(1.1, 1.1);
+        }
     }
 
-    &:hover img {
-        transform: scale(1.1, 1.1);
+    // title
+    &__title {
+        padding: 25px 10px;
+        text-align: center;
+    }
+
+    // inner title
+    &__title-inner {
+        font-weight: 100;
+        font-style: italic;
+    }
+
+    // link
+    &__link {
+        display: inline-block;
+        margin-top: auto;
+        text-decoration: none !important;
+        color: $primary;
+        align-self: center;
+    }
+
+    // buttons (remove / add) for cart
+    .post-box__remove,
+    .post-box__add {
+        outline: none;
+        background-color: $light-gray;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: none;
+        z-index: 10;
+        font-size: 18px;
+
+        &:disabled {
+            width: 100%;
+            font-size: 16px;
+            color: $warning;
+            background-color: rgba(0,0,0,0.7);
+            cursor: default;
+        }
+    }
+
+    .post-box__add {
+        color: $dark;
+    }
+
+    .post-box__remove {
+        color: $primary;
     }
 }
 
 
 /*==============================
-    BUTTON FOR POST
+    SINGLE PAGE
 ==============================*/
 
-.cart-btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 10;
+
+.single {
+
+    // title
+    &__title {
+        background: $light-gray;
+        margin-bottom: 0;
+        text-align: center;
+        padding: 20px;
+    }
+
+    // post info
+    &__post {
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
+        color: $dark;
+        font-size: 20px;
+        background-color: $light-gray;
+        padding: 20px 15px;
+    }
+
+    // tech params
+    &__tech-params {
+        font-size: 18px;
+        margin: 30px 0 30px;
+
+        li {
+            margin-bottom: 10px;
+
+            span {
+                font-weight: 600;
+                font-style: italic;
+            }
+        }
+    }
+
+    // buttons (remove / add) for cart
+    &__button--add,
+    &__button--remove {
+        padding: 5px 10px;
+        border: none;
+        outline: none !important;
+        background-color: transparent;
+        margin-bottom: 30px;
+        align-self: flex-end;
+
+        &:disabled {
+            color: #fff;
+            background-color: rgba(0,0,0,0.5);
+            cursor: not-allowed;
+        }
+    }
+
+    &__button--add {
+        background-color: $success;
+        color: $light;
+    }
+
+    &__button--remove {
+        background-color: $dark;
+        color: $warning;
+    }
+
+    // availability
+    &__availability {
+        align-self: flex-end;
+
+        span {
+            font-style: italic;
+        }
+    }
 }
 
 
 /*==============================
-    CART LINK
+    CART PAGE
 ==============================*/
+
 
 .cart {
 
-    &__qnty-btns {
+    &__remove {
+        border: none !important;
+        outline: none !important;
+        color: $warning;
+        background-color: transparent;
+        font-size: 20px;
+    }
+
+    &__title {
+        span {
+            font-weight: 100;
+            font-style: italic;
+        }
+    }
+
+
+    &__amount-btns {
         display: flex;
         flex-direction: row;
         max-width: 120px;
-        border: 1px solid $light;
-        justify-content: space-around;
+        border: 1px solid $light-gray;
+        justify-content: space-between;
         align-items: center;
         margin-left: auto;
-        padding: 0 5px;
+        padding: 10px 5px;
+
+        span {
+            font-weight: 600;
+        }
     }
 
-
-    &__qnty {
-        padding: 5px 10px;
-        color: $primary;
-        font-size: 20px
-    }
 
     &__increase,
     &__decrease {
-        width: 15px;
-        font-size: 20px;
+        align-self: flex-start;
+        width: 20px;
+        font-size: 18px;
         padding: 0;
         border: 0;
         outline: none;
         background: transparent;
         display: inline-block;
-        color: $info;
+        color: $dark;
         font-weight: bold;
 
         &:focus,
@@ -311,8 +525,12 @@ body {
             border: none;
         }
     }
-
 }
+
+
+/*==============================
+    LINK TO CART PAGE (placed in Navbar component)
+==============================*/
 
 
 .cart-link {
@@ -334,6 +552,7 @@ body {
 /*==============================
     FOOTER
 ==============================*/
+
 
 .footer {
     margin-top: auto;

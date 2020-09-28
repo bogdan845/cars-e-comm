@@ -23,7 +23,7 @@ class Filter extends React.Component {
 
         getCountries = getCountries.map((item, index) => {
             return (
-                <div className="" key={index}>
+                <div key={index}>
                     <input
                         className="filter-box"
                         type="checkbox"
@@ -31,9 +31,9 @@ class Filter extends React.Component {
                         value={item}
                         onChange={handleChange}
                     />
-                    <label className="text-light ml-2">{item}</label>
+                    <label className="ml-2">{item}</label>
                 </div>
-            )
+            );
         });
 
 
@@ -48,17 +48,18 @@ class Filter extends React.Component {
                 >
                     {item}
                 </option>
-            )
-        })
+            );
+        });
 
 
         return (
 
-            <form className="mb-sm-5">
+            <form className="mb-sm-5 text-dark">
 
-                <h3 className="text-light mb-4 text-sm-center text-md-left">Filters</h3>
+                <h3 className="mb-4 text-sm-center text-md-left">Filters</h3>
+
                 <div className="form-group ">
-                    <h5 className="text-light">Select mark</h5>
+                    <h5>Select mark</h5>
                     <select
                         className="form-control"
                         name="mark"
@@ -70,56 +71,22 @@ class Filter extends React.Component {
                 </div>
 
                 <div className="form-group">
-                    <h5 className="text-light">Sort by countries</h5>
+                    <h5>Sort by countries</h5>
                     {getCountries}
                 </div>
 
                 <div className="form-group">
-                    <h5 className="text-light">Sort by availability</h5>
+                    <h5>Sort by availability</h5>
                     <input
                         type="checkbox"
                         name="availability"
                         checked={availability}
                         onChange={handleChange}
                     />
-                    <label className="ml-2 text-light">Availability</label>
+                    <label className="ml-2">Available</label>
                 </div>
             </form>
-
-
-            // <form>
-            //     <div className="form-group row mb-0">
-            //         <div className="col-md-4 col-sm-12 mb-4">
-            //             <h4 className="text-light">Select mark</h4>
-            //             <select
-            //                 className="form-control"
-            //                 name="mark"
-            //                 value={mark}
-            //                 onChange={handleChange}
-            //             >
-            //                 {getMarks}
-            //             </select>
-            //         </div>
-            //
-            //         <div className="col-md-4 col-sm-12 mb-4">
-            //             <h4 className="text-light">Sort by countries</h4>
-            //             {getCountries}
-            //         </div>
-            //
-            //         <div className="col-md-4 col-sm-12 mb-4">
-            //             <h4 className="text-light">Sort by availability</h4>
-            //             <input
-            //                 type="checkbox"
-            //                 name="availability"
-            //                 checked={availability}
-            //                 onChange={handleChange}
-            //             />
-            //             <label className="ml-2 text-light">Availability</label>
-            //         </div>
-            //     </div>
-            // </form>
-
-        )
+        );
     }
 }
 

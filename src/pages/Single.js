@@ -20,7 +20,11 @@ class Single extends React.Component {
     render() {
 
 
-        const {getPostBySlug} = this.context;
+        const {
+            getPostBySlug,
+            handleAddToCart,
+            handleRemoveFromCart
+        } = this.context;
         let post = getPostBySlug(this.state.slug);
 
         if (!post) {
@@ -29,9 +33,9 @@ class Single extends React.Component {
                     <div className="container">
                         <div className="row">
                             <div className="col">
-                                <div className="bg-dark card mt-5 py-4 px-2 text-center">
-                                    <h3 className="text-light mb-4">Something goes wrong...</h3>
-                                    <Link to="/cars">Back to cars page</Link>
+                                <div className="b-not-found">
+                                    <p className="text-dark">Something goes wrong...</p>
+                                    <Link className="b-link" to="/cars">Back to cars page</Link>
                                 </div>
                             </div>
                         </div>
@@ -41,6 +45,7 @@ class Single extends React.Component {
         }
 
         const {
+            id,
             mark,
             model,
             images,
@@ -51,31 +56,76 @@ class Single extends React.Component {
             acceleration,
             maxSpeed,
             transmission,
-            isAvailable
+            isAvailable,
+            inCart,
         } = post;
 
+
         return (
-            <main>
+            <main className="single py-5">
                 <div className="container">
                     <div className="row">
                         <div className="col">
-                            <div className="bg-dark text-light text-justify card my-5 py-4 px-4">
-                                <h3 className="text-center text-light card-title mb-4">{mark}: <span
-                                    className="font-italic font-weight-light">{model}</span></h3>
-                                <img className="mb-4 img-fluid" src={images[0]}/>
+
+                            <h3 className="single__title">{mark}: <span className="">{model}</span></h3>
+                            <img className="img-fluid" src={images[0]}/>
+                            <div className="single__post">
                                 <p>{description}</p>
 
-                                <div className="text-light text-justify mb-2">
-                                    <p><span className="text-info">Engine: </span>{engine ? engine : "Not specified"}</p>
-                                    <p><span className="text-info">Horsepower: </span>{horsepower ? horsepower : "Not specified"}</p>
-                                    <p><span className="text-info">Torque: </span>{torque ? torque : "Not specified"}</p>
-                                    <p><span className="text-info">Acceleration: </span>{acceleration ? acceleration + " (0-60 m/ph)" : "Not specified"}</p>
-                                    <p><span className="text-info">Max Speed: </span>{maxSpeed ? maxSpeed + "m/ph" : "Not specified"}</p>
-                                    <p><span className="text-info">Transmission: </span> {transmission ? transmission : "Not specified"}</p>
-                                </div>
+                                <ul className="single__tech-params">
+                                    <li>
+                                        <span className="">Engine: </span>{engine ? engine : "Not specified"}
+                                    </li>
+                                    <li>
+                                        <span
+                                            className="">Horsepower: </span>{horsepower ? horsepower : "Not specified"}
+                                    </li>
+                                    <li>
+                                        <span className="">Torque: </span>{torque ? torque : "Not specified"}
+                                    </li>
+                                    <li>
+                                        <span
+                                            className="">Acceleration: </span>{acceleration ? acceleration + " (0-60 m/ph)" : "Not specified"}
+                                    </li>
+                                    <li>
+                                        <span
+                                            className="">Max Speed: </span>{maxSpeed ? maxSpeed + "m/ph" : "Not specified"}
+                                    </li>
+                                    <li>
+                                        <span
+                                            className="">Transmission: </span> {transmission ? transmission : "Not specified"}
+                                    </li>
+                                </ul>
 
-                                <h5 className="mb-0"><span className="text-primary">Availability:</span> {isAvailable ? <span className="text-info">Yes</span> : <span className="text-warning">Not Available</span>}</h5>
 
+                                {inCart ?
+                                        <button
+                                            disabled={isAvailable ? false : true}
+                                            type="button"
+                                            className="single__button--remove"
+                                            onClick={() => handleRemoveFromCart(id)}
+                                        >
+                                            Remove from cart
+                                        </button> :
+
+                                        <button
+                                            disabled={isAvailable ? false : true}
+                                            type="button"
+                                            className="single__button--add"
+                                            onClick={() => handleAddToCart(id)}
+                                        >
+                                            Add to cart
+                                        </button>
+                                }
+
+
+                                <h5 className="single__availability">
+                                    Availability:
+                                    {isAvailable ?
+                                        <span className="text-primary"> Yes</span> :
+                                        <span className="text-warning"> Not Available</span>
+                                    }
+                                </h5>
 
                             </div>
                         </div>

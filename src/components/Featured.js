@@ -32,7 +32,7 @@ class Featured extends React.Component {
                 <div className="container">
                     <div className="row">
                         {setFeatured}
-                        <div className="col text-center">
+                        <div className="col-12 text-center">
                             <Link className="b-link" to="/cars">Go to cars page</Link>
                         </div>
                     </div>

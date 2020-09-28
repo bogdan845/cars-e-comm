@@ -21,6 +21,7 @@ import pageImg from "../images/cars-page.jpg"
 
 // context
 import {CarsContext} from "../context";
+import {Link} from "react-router-dom";
 
 class Posts extends React.Component {
 
@@ -41,14 +42,16 @@ class Posts extends React.Component {
 
                 <StyledHero className="mb-5" img={pageImg}>
                     <Banner
-                        title="Provided cars"
+                        title="Nulla tellus"
                         link="home"
-                    />
+                    >
+                        <Link className="b-link" to="/">home page</Link>
+                    </Banner>
                 </StyledHero>
 
                 <Title title="Cars List"/>
 
-                <section className="b-section">
+                <section>
                     <div className="container">
                         <div className="row">
                             <div className="col-md-3 col-sm-12">
@@ -58,8 +61,8 @@ class Posts extends React.Component {
                             <div className="col-md-9 col-sm-12">
                                 <div className="row">
                                     {getPosts.length === 0 ?
-                                        <div className="col not-found">
-                                            <p>Sorry, but there is no results were found for your search</p>
+                                        <div className="col b-not-found">
+                                            <p>Sorry but there is no result for your search</p>
                                             <p>Please, change filter settings</p>
                                         </div>
                                         :
