@@ -59,16 +59,18 @@ class Posts extends React.Component {
                             </div>
 
                             <div className="col-md-9 col-sm-12">
-                                <div className="row">
-                                    {getPosts.length === 0 ?
-                                        <div className="col b-not-found">
-                                            <p>Sorry but there is no result for your search</p>
-                                            <p>Please, change filter settings</p>
-                                        </div>
-                                        :
-                                        getPosts
-                                    }
-                                </div>
+
+                                {getPosts.length === 0 ?
+                                    <div className="col b-not-found">
+                                        <p>Sorry but there is no result for your search</p>
+                                        <p>Please, change filter settings</p>
+                                    </div>
+                                    :
+                                    <div className="row">
+                                        {getPosts}
+                                    </div>
+                                }
+
                             </div>
 
                         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import {Link, useRouteMatch} from "react-router-dom"
 import {FaShoppingBag} from "react-icons/fa";
 
 // hook for context
@@ -7,6 +7,26 @@ import {useContext} from "react";
 
 // context
 import {CarsContext} from "../context";
+
+
+// active menu item
+const OldSchoolMenuLink = ({to, activeOnlyWhenExact, label, onClick, children}) => {
+    let match = useRouteMatch({
+        path: to,
+        exact: activeOnlyWhenExact
+    });
+
+    return (
+        <Link className={match ? "b-current-menu-item" : "b-menu-item"}
+              to={to}
+              onClick={onClick}
+        >
+            {label}
+            {children}
+        </Link>
+    );
+}
+
 
 // component
 const Navbar = () => {
@@ -22,7 +42,7 @@ const Navbar = () => {
 
 
     return (
-        <header className="header py-2">
+        <header className="header py-3">
 
             <div className="container">
                 <div className="row align-items-center">
@@ -38,22 +58,35 @@ const Navbar = () => {
 
                         <nav className={menuOpen ? "menu active" : "menu"}>
                             <ul className="menu__list">
-                                <li className="mb-2">
-                                    <Link onClick={isMobileNav ? openCloseMenu : null} to="/">Home</Link>
+                                <li>
+                                    <OldSchoolMenuLink
+                                        label="Home"
+                                        to="/"
+                                        onClick={isMobileNav ? openCloseMenu : null}
+                                        activeOnlyWhenExact={true}
+                                    />
                                 </li>
 
-                                <li className="mb-2">
-                                    <Link onClick={isMobileNav ? openCloseMenu : null} to="/cars">Cars</Link>
+                                <li>
+                                    <OldSchoolMenuLink
+                                        label="Cars"
+                                        to="/cars"
+                                        onClick={isMobileNav ? openCloseMenu: null}
+                                    />
                                 </li>
                             </ul>
                         </nav>
                     </div>
                     <div className="col-4 text-right">
-                        <Link className="cart-link" to="/cart">
-                            <FaShoppingBag/>
-                            <span>{countCartItems}</span>
-                        </Link>
-
+                        <span className="cart-link">
+                            <OldSchoolMenuLink
+                                to="/cart"
+                                onClick={ isMobileNav && menuOpen ? openCloseMenu : null }
+                            >
+                                <FaShoppingBag/>
+                                <span>{countCartItems}</span>
+                            </OldSchoolMenuLink>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -61,4 +94,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export {Navbar, OldSchoolMenuLink}

@@ -1,7 +1,10 @@
 import React from "react";
 
-// hook for context
+// hook
 import {useContext} from "react";
+
+// prop types
+import PropTypes from "prop-types";
 
 // context
 import {CarsContext} from "../context";
@@ -9,6 +12,7 @@ import {CarsContext} from "../context";
 // link
 import {Link} from "react-router-dom";
 
+// icons
 import {MdShoppingCart} from "react-icons/md";
 import {MdRemoveShoppingCart} from "react-icons/md";
 
@@ -22,8 +26,6 @@ const Post = ({data}) => {
     } = context;
 
 
-
-
     return (
         <div className="col-lg-4 col-md-6 col-sm-12 mb-5">
 
@@ -32,7 +34,7 @@ const Post = ({data}) => {
                     <button
                         type="button"
                         className="post-box__remove"
-                        onClick={ () => handleRemoveFromCart(data.id)}
+                        onClick={() => handleRemoveFromCart(data.id)}
                     >
                         <MdRemoveShoppingCart/>
                     </button>
@@ -41,7 +43,7 @@ const Post = ({data}) => {
                         type="button"
                         disabled={data.isAvailable ? false : true}
                         className="post-box__add"
-                        onClick={ () => handleAddToCart(data.id)}
+                        onClick={() => handleAddToCart(data.id)}
                     >
                         {data.isAvailable ? <MdShoppingCart/> : "Not available"}
                     </button>
@@ -51,7 +53,7 @@ const Post = ({data}) => {
                 </Link>
 
                 <h5 className="post-box__title">{data.mark}:
-                    <span className="post-box__title-inner"> {data.model}</span>
+                    <span className="b-cursive"> {data.model}</span>
                 </h5>
 
                 <Link className="post-box__link" to={`cars/${data.slug}`}>Read more</Link>
@@ -59,6 +61,16 @@ const Post = ({data}) => {
             </div>
         </div>
     )
+}
+
+
+Post.propTypes = {
+    data: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        isAvailable: PropTypes.bool.isRequired,
+        featured: PropTypes.bool.isRequired,
+        inCart: PropTypes.bool.isRequired,
+    })
 }
 
 export default Post;

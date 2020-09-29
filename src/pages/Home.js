@@ -15,10 +15,6 @@ import Featured from "../components/Featured";
 // link
 import {Link} from "react-router-dom";
 
-{/*{link ?*/}
-{/*
-{/*}*/}
-
 
 const Home = () => {
     return (

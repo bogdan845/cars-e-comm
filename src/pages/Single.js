@@ -6,6 +6,9 @@ import {Link} from "react-router-dom";
 // context
 import {CarsContext} from "../context";
 
+// link
+
+
 class Single extends React.Component {
 
     constructor(props) {
@@ -19,13 +22,13 @@ class Single extends React.Component {
 
     render() {
 
-
         const {
             getPostBySlug,
             handleAddToCart,
             handleRemoveFromCart
         } = this.context;
         let post = getPostBySlug(this.state.slug);
+
 
         if (!post) {
             return (
@@ -34,7 +37,7 @@ class Single extends React.Component {
                         <div className="row">
                             <div className="col">
                                 <div className="b-not-found">
-                                    <p className="text-dark">Something goes wrong...</p>
+                                    <p className="text-dark">Post you looking was not found</p>
                                     <Link className="b-link" to="/cars">Back to cars page</Link>
                                 </div>
                             </div>
@@ -58,6 +61,7 @@ class Single extends React.Component {
             transmission,
             isAvailable,
             inCart,
+            cost,
         } = post;
 
 
@@ -67,36 +71,41 @@ class Single extends React.Component {
                     <div className="row">
                         <div className="col">
 
-                            <h3 className="single__title">{mark}: <span className="">{model}</span></h3>
-                            <img className="img-fluid" src={images[0]}/>
+                            <h3 className="single__title">{mark}: <span className="b-cursive">{model}</span></h3>
+                            <img className="img-fluid" src={images[0]} alt={mark +": "+ model}/>
                             <div className="single__post">
                                 <p>{description}</p>
 
                                 <ul className="single__tech-params">
                                     <li>
-                                        <span className="">Engine: </span>{engine ? engine : "Not specified"}
+                                        <span>Engine: </span>{engine ? engine : "Not specified"}
                                     </li>
                                     <li>
-                                        <span
-                                            className="">Horsepower: </span>{horsepower ? horsepower : "Not specified"}
+                                        <span>Horsepower: </span>{horsepower ? horsepower : "Not specified"}
                                     </li>
                                     <li>
-                                        <span className="">Torque: </span>{torque ? torque : "Not specified"}
+                                        <span>Torque: </span>{torque ? torque : "Not specified"}
                                     </li>
                                     <li>
-                                        <span
-                                            className="">Acceleration: </span>{acceleration ? acceleration + " (0-60 m/ph)" : "Not specified"}
+                                        <span>Acceleration: </span>{acceleration ? acceleration + " (0-60 m/ph)" : "Not specified"}
                                     </li>
                                     <li>
-                                        <span
-                                            className="">Max Speed: </span>{maxSpeed ? maxSpeed + "m/ph" : "Not specified"}
+                                        <span>Max Speed: </span>{maxSpeed ? maxSpeed + "m/ph" : "Not specified"}
                                     </li>
                                     <li>
-                                        <span
-                                            className="">Transmission: </span> {transmission ? transmission : "Not specified"}
+                                        <span>Transmission: </span> {transmission ? transmission : "Not specified"}
                                     </li>
                                 </ul>
 
+                                {cost ? <h5 className="single__price">Price: <span className="font-italic">{cost.toLocaleString()} $</span></h5> : ""}
+
+                                <h5 className="single__availability">
+                                    Availability:
+                                    {isAvailable ?
+                                        <span className="font-italic text-primary"> Yes</span> :
+                                        <span className="font-italic text-warning"> Not Available</span>
+                                    }
+                                </h5>
 
                                 {inCart ?
                                         <button
@@ -118,14 +127,8 @@ class Single extends React.Component {
                                         </button>
                                 }
 
-
-                                <h5 className="single__availability">
-                                    Availability:
-                                    {isAvailable ?
-                                        <span className="text-primary"> Yes</span> :
-                                        <span className="text-warning"> Not Available</span>
-                                    }
-                                </h5>
+                                <Link className="single__link" to="/cars">Back to cars</Link>
+                                <Link className="single__link" to="/cart">Open cart</Link>
 
                             </div>
                         </div>

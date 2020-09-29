@@ -53,9 +53,9 @@ class CarsProvider extends React.Component {
     }
 
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(this.state.isMobileNav);
-    }
+    // componentDidUpdate(prevProps, prevState, snapshot) {
+    //     console.log(this.state.isMobileNav);
+    // }
 
 
     componentWillUnmount() {
@@ -77,7 +77,7 @@ class CarsProvider extends React.Component {
             clearTimeout(this.timer);
         }
 
-        this.timer = setTimeout( ()=> {
+        this.timer = setTimeout(() => {
             _this.setNavbarStyle();
         }, 100);
     }
@@ -120,9 +120,9 @@ class CarsProvider extends React.Component {
 
         if (e.target.classList.contains("filter-box")) {
             if (e.target.checked) {
-                setCountries[e.target.name] = true
+                setCountries[e.target.name] = true;
             } else {
-                setCountries[e.target.name] = false
+                setCountries[e.target.name] = false;
             }
         }
 
@@ -150,9 +150,9 @@ class CarsProvider extends React.Component {
         for (const key in country) {
             if (country[key]) {
                 tempData.map(item => {
-                    if (item.country === key) {
-                        sortByCountries.push(item)
-                    }
+                    return (
+                        item.country === key ? sortByCountries.push(item) : ""
+                    )
                 })
             }
         }
@@ -183,7 +183,7 @@ class CarsProvider extends React.Component {
         createMessage.className = `b-cart-message ${className}`;
         createMessage.innerText = `${mark} ${model} ${text}`;
 
-        setTimeout( () => {
+        setTimeout(() => {
             const getMessage = document.querySelector(".b-cart-message");
             getMessage.remove();
         }, 2500);
@@ -266,10 +266,30 @@ class CarsProvider extends React.Component {
 
     countTotalCost = () => {
         let total = 0;
-        const getTotal = this.state.posts.map(item => total += item.amount * item.cost);
+        this.state.posts.map(item => total += item.amount * item.cost);
         this.setState({
             totalCost: total
         });
+    }
+
+
+    handleClearCart = () => {
+        let {posts: getData} = this.state;
+
+
+        getData = getData.map(item => {
+            if (item.inCart) {
+                item.inCart = false;
+                item.amount = 0
+            }
+            return item;
+        });
+
+        this.setState({
+            post: getData,
+            totalCost: 0,
+            countCartItems: 0
+        })
     }
 
 
@@ -284,6 +304,7 @@ class CarsProvider extends React.Component {
                 handleRemoveFromCart: this.handleRemoveFromCart,
                 handleIncreaseAmount: this.handleIncreaseAmount,
                 handleDecreaseAmount: this.handleDecreaseAmount,
+                handleClearCart: this.handleClearCart,
             }}>
                 {this.props.children}
             </CarsContext.Provider>

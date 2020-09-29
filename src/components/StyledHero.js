@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 // default img
-import defaultImg from "../images/front-image.jpg";
+// import defaultImg from "../images/front-image.jpg";
 
 
 /*example*/

@@ -9,10 +9,10 @@ export default [
             "country": "Germany",
             "isAvailable": true,
             "featured": true,
-            "inCart": true,
+            "inCart": false,
             "amount": 0,
             "total": 0,
-            "cost": 15
+            "cost": 188550,
         },
 
         "techParams": {
@@ -45,7 +45,7 @@ export default [
             "inCart": false,
             "amount": 0,
             "total": 0,
-            "cost": 10
+            "cost": 158000
         },
 
         "techParams": {
@@ -76,7 +76,7 @@ export default [
             "inCart": false,
             "amount": 0,
             "total": 0,
-            "cost": 5
+            "cost": 169900
         },
 
         "techParams": {
@@ -108,7 +108,7 @@ export default [
             "inCart": false,
             "amount": 0,
             "total": 0,
-            "cost": 5
+            "cost": 105100
         },
 
         "techParams": {
@@ -140,7 +140,7 @@ export default [
             "inCart": false,
             "amount": 0,
             "total": 0,
-            "cost": 5
+            "cost": 330000
         },
 
         "techParams": {
@@ -172,7 +172,7 @@ export default [
             "inCart": false,
             "amount": 0,
             "total": 0,
-            "cost": 5
+            "cost": 200000
         },
 
         "techParams": {
@@ -203,7 +203,7 @@ export default [
             "inCart": false,
             "amount": 0,
             "total": 0,
-            "cost": 5
+            "cost": 98000
         },
 
         "techParams": {
@@ -233,7 +233,7 @@ export default [
             "inCart": false,
             "amount": 0,
             "total": 0,
-            "cost": 5
+            "cost": 3000000
         },
 
         "techParams": {
@@ -265,7 +265,7 @@ export default [
             "inCart": false,
             "amount": 0,
             "total": 0,
-            "cost": 5
+            "cost": 113540,
         },
 
         "techParams": {
@@ -296,7 +296,7 @@ export default [
             "inCart": false,
             "amount": 0,
             "total": 0,
-            "cost": 5
+            "cost": 300000
         },
 
         "techParams": {
@@ -327,7 +327,7 @@ export default [
             "inCart": false,
             "amount": 0,
             "total": 0,
-            "cost": 5
+            "cost": 247000
         },
 
         "techParams": {
@@ -358,7 +358,7 @@ export default [
             "inCart": false,
             "amount": 0,
             "total": 0,
-            "cost": 5
+            "cost": 55685
         },
 
         "techParams": {
@@ -389,7 +389,7 @@ export default [
             "inCart": false,
             "amount": 0,
             "total": 0,
-            "cost": 5
+            "cost": 119995
         },
 
         "techParams": {
@@ -420,7 +420,7 @@ export default [
             "inCart": false,
             "amount": 0,
             "total": 0,
-            "cost": 5
+            "cost": 600000
         },
 
         "techParams": {
@@ -452,7 +452,7 @@ export default [
             "inCart": false,
             "amount": 0,
             "total": 0,
-            "cost": 5
+            "cost": 72000
         },
 
         "techParams": {

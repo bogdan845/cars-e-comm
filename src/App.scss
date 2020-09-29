@@ -49,8 +49,14 @@ body {
     }
 }
 
+.b-cursive {
+    font-style: italic;
+    font-weight: 100;
+}
+
 // link
 .b-link {
+    max-width: 200px;
     display: inline-block;
     padding: 5px 20px;
     font-size: 20px;
@@ -105,6 +111,40 @@ body {
     }
 }
 
+.b-current-menu-item,
+.b-menu-item {
+    position: relative;
+
+    &:after {
+        content: "";
+        position: absolute;
+        background-color: $primary;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 0;
+        transition: 0.25s linear;
+    }
+
+    &:hover{
+        &:after {
+            width: 100%;
+            right: 0;
+            left: auto;
+        }
+    }
+}
+
+
+.b-current-menu-item {
+    &:after {
+        width: 100%;
+        right: 0;
+        left: auto;
+    }
+}
+
+
 
 /*==============================
     MENU
@@ -117,7 +157,7 @@ body {
     left: -100%;
     width: 100%;
     height: calc(100vh - 61px);
-    top: 61px;
+    top: 75px;
     transition: 0.25s ease-in;
 
     @include media-breakpoint-up(md) {
@@ -154,9 +194,10 @@ body {
         }
 
         li {
+            margin-bottom: 20px;
 
             @include media-breakpoint-up(md) {
-                margin: 20px;
+                margin: 0 20px;
 
                 &:first-child {
                     margin-left: 0;
@@ -169,6 +210,11 @@ body {
 
             > a {
                 font-size: 20px;
+                text-decoration: none !important;
+                padding: 5px 15px;
+                position: relative;
+                color: $primary;
+
             }
         }
     }
@@ -341,12 +387,6 @@ body {
         text-align: center;
     }
 
-    // inner title
-    &__title-inner {
-        font-weight: 100;
-        font-style: italic;
-    }
-
     // link
     &__link {
         display: inline-block;
@@ -372,17 +412,29 @@ body {
             width: 100%;
             font-size: 16px;
             color: $warning;
-            background-color: rgba(0,0,0,0.7);
+            background-color: rgba(0, 0, 0, 0.7);
             cursor: default;
+
+            &:hover {
+                color: $warning;
+            }
         }
     }
 
     .post-box__add {
         color: $dark;
+
+        &:hover {
+            color: $primary
+        }
     }
 
     .post-box__remove {
         color: $primary;
+
+        &:hover {
+            color: $dark;
+        }
     }
 }
 
@@ -432,36 +484,56 @@ body {
     &__button--add,
     &__button--remove {
         padding: 5px 10px;
-        border: none;
         outline: none !important;
+        border: none !important;
         background-color: transparent;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
         align-self: flex-end;
+        transition: 0.25s linear;
+        max-width: 200px;
 
         &:disabled {
             color: #fff;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.5);
             cursor: not-allowed;
         }
     }
 
+    // add button
     &__button--add {
         background-color: $success;
         color: $light;
+
+        &:hover {
+            opacity: 0.8;
+        }
     }
 
+    // remove button
     &__button--remove {
         background-color: $dark;
         color: $warning;
     }
 
-    // availability
-    &__availability {
+    &__link {
+        max-width: 200px;
         align-self: flex-end;
+        margin-bottom: 15px;
+        text-decoration: none !important;
+        padding: 5px 10px;
+        background-color: $primary;
+        color: $light !important;
+        transition: 0.25s linear;
 
-        span {
-            font-style: italic;
+        &:hover {
+            opacity: 0.8;
         }
+    }
+
+    // price
+    &__price,
+    &__availability {
+        margin-bottom: 15px;
     }
 }
 
@@ -472,23 +544,35 @@ body {
 
 
 .cart {
+    padding-top: 50px;
+    padding-bottom: 50px;
 
+    // remove btn
     &__remove {
         border: none !important;
         outline: none !important;
-        color: $warning;
+        color: $dark;
         background-color: transparent;
         font-size: 20px;
-    }
+        transition: 0.25s linear;
 
-    &__title {
-        span {
-            font-weight: 100;
-            font-style: italic;
+        &:hover {
+            color: $warning;
         }
     }
 
 
+    // title
+    &__title {
+        text-align: center;
+
+        @include media-breakpoint-up(md) {
+            text-align: left;
+        }
+    }
+
+
+    // amount buttons wrap
     &__amount-btns {
         display: flex;
         flex-direction: row;
@@ -496,15 +580,36 @@ body {
         border: 1px solid $light-gray;
         justify-content: space-between;
         align-items: center;
-        margin-left: auto;
         padding: 10px 5px;
+
+        @include media-breakpoint-up(md) {
+            margin-left: auto;
+        }
 
         span {
             font-weight: 600;
+            font-size: 18px;
         }
     }
 
 
+    // cart link
+    &__item-link {
+        margin-bottom: 10px;
+        display: block;
+        transition: 0.25s linear;
+
+        @include media-breakpoint-up(md) {
+            margin-bottom: 0;
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+
+    // amount buttons
     &__increase,
     &__decrease {
         align-self: flex-start;
@@ -525,21 +630,45 @@ body {
             border: none;
         }
     }
+
+
+    // clear cart
+    &__clear.b-link {
+        background-color: $warning;
+        color: $light;
+        align-self: flex-end;
+        margin-bottom: 10px;
+
+        &:hover {
+            border-color: $warning;
+            background: transparent;
+            color: $warning
+        }
+    }
+
+    &__link.b-link {
+        align-self: flex-end;
+    }
+
 }
 
 
 /*==============================
-    LINK TO CART PAGE (placed in Navbar component)
+    LINK TO CART PAGE (placed in Navbar.js)
 ==============================*/
 
 
 .cart-link {
     font-size: 30px;
     position: relative;
-    padding-right: 10px;
+    color: $primary;
+
+    .b-current-menu-item,
+    .b-menu-item {
+        padding: 0 10px 7px;
+    }
 
     span {
-        color: $info;
         position: absolute;
         top: 0;
         right: 0;

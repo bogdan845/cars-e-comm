@@ -10,7 +10,7 @@ import Title from "./Title";
 import {CarsContext} from "../context";
 
 // link
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 class Featured extends React.Component {
 
@@ -33,7 +33,7 @@ class Featured extends React.Component {
                     <div className="row">
                         {setFeatured}
                         <div className="col-12 text-center">
-                            <Link className="b-link" to="/cars">Go to cars page</Link>
+                            <NavLink className="b-link" to="/cars">cars page</NavLink>
                         </div>
                     </div>
                 </div>

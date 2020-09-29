@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {Switch, Route} from "react-router-dom"
 
 // navbar
-import Navbar from "./components/Navbar";
+import {Navbar} from "./components/Navbar";
 
 // pages
 import Home from "./pages/Home";
