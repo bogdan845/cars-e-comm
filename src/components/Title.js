@@ -1,10 +1,10 @@
 import React from "react";
 
 const Title = ({title}) => {
-
     if (!title) {
-        return ("")
+        return ("");
     }
+
 
     return (
         <h2 className="b-title mb-5">

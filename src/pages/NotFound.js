@@ -3,10 +3,10 @@ import React from "react";
 // link
 import {Link} from "react-router-dom";
 
+
 const NotFound = () => {
     return (
-
-        <section className="b-section">
+        <main className="b-section">
             <div className="container">
                 <div className="row">
                     <div className="col b-not-found">
@@ -15,7 +15,7 @@ const NotFound = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </main>
     )
 }
 

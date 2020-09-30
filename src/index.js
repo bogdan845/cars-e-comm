@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
+// App
+import App from './App';
+// service worker
+import * as serviceWorker from './serviceWorker';
 // router
 import {BrowserRouter as Router} from "react-router-dom";
-
 // context
 import {CarsProvider} from "./context";
-
 // scrollToTop
 import ScrollToTop from "./components/ScrollToTop";
+
 
 ReactDOM.render(
     <CarsProvider>

@@ -1,7 +1,8 @@
 import React from "react"
 
 // cars data
-import carsData from "./cars-data";
+// import carsData from "./cars-data";
+
 
 // context
 const CarsContext = React.createContext();
@@ -15,6 +16,7 @@ class CarsProvider extends React.Component {
             posts: [],
             featured: [],
             sorted: [],
+            isLoading: true,
 
             // cart
             countCartItems: 0,
@@ -39,17 +41,24 @@ class CarsProvider extends React.Component {
 
 
     componentDidMount() {
-        const getData = this.prepareData(carsData);
-        const getFeatured = getData.filter(item => item.featured === true);
+
+        fetch("https://my-json-server.typicode.com/bogdan845/cars-e-comm-data/db")
+            .then(response => response.json())
+            .then(data => {
+                const getData = this.prepareData(data.data);
+                const getFeatured = getData.filter(item => item.featured === true);
+                this.setState({
+                    posts: getData,
+                    featured: getFeatured,
+                    sorted: getData,
+                });
+            })
+            .then( data => {
+                this.setState({isLoading: false});
+            });
 
         window.addEventListener("resize", this.applyNavbarStyle);
         this.setNavbarStyle();
-
-        this.setState({
-            posts: getData,
-            featured: getFeatured,
-            sorted: getData,
-        });
     }
 
 
@@ -275,7 +284,6 @@ class CarsProvider extends React.Component {
 
     handleClearCart = () => {
         let {posts: getData} = this.state;
-
 
         getData = getData.map(item => {
             if (item.inCart) {

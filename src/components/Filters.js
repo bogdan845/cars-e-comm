@@ -1,15 +1,14 @@
 import React from "react";
 
-
 // context
 import {CarsContext} from "../context";
 
-class Filter extends React.Component {
 
+class Filters extends React.Component {
     static contextType = CarsContext;
 
-    render() {
 
+    render() {
         const {
             handleChange,
             posts,
@@ -17,10 +16,11 @@ class Filter extends React.Component {
             availability
         } = this.context;
 
-
-        const filteredCountries = new Set(posts.map(item => item.country))
+        // remove duplicate countries
+        const filteredCountries = new Set(posts.map(item => item.country));
         let getCountries = [...filteredCountries];
 
+        // displaying list of countries
         getCountries = getCountries.map((item, index) => {
             return (
                 <div key={index}>
@@ -37,9 +37,11 @@ class Filter extends React.Component {
         });
 
 
+        // remove duplicate models from list
         const filteredMarks = new Set(posts.map(item => item.mark));
         let getMarks = ["All", ...filteredMarks];
 
+        // displaying list of models
         getMarks = getMarks.map((item, index) => {
             return (
                 <option
@@ -53,18 +55,15 @@ class Filter extends React.Component {
 
 
         return (
-
             <form className="mb-sm-5 text-dark">
-
                 <h3 className="mb-4 text-sm-center text-md-left">Filters</h3>
 
                 <div className="form-group ">
                     <h5>Select mark</h5>
-                    <select
-                        className="form-control"
-                        name="mark"
-                        value={mark}
-                        onChange={handleChange}
+                    <select className="form-control"
+                            name="mark"
+                            value={mark}
+                            onChange={handleChange}
                     >
                         {getMarks}
                     </select>
@@ -77,11 +76,10 @@ class Filter extends React.Component {
 
                 <div className="form-group">
                     <h5>Sort by availability</h5>
-                    <input
-                        type="checkbox"
-                        name="availability"
-                        checked={availability}
-                        onChange={handleChange}
+                    <input type="checkbox"
+                           name="availability"
+                           checked={availability}
+                           onChange={handleChange}
                     />
                     <label className="ml-2">Available</label>
                 </div>
@@ -90,4 +88,4 @@ class Filter extends React.Component {
     }
 }
 
-export default Filter;
+export default Filters;

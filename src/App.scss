@@ -27,6 +27,7 @@ body {
     padding: 70px 0 0;
 }
 
+
 // title
 .b-title {
     text-align: center;
@@ -49,10 +50,13 @@ body {
     }
 }
 
+
+// cursive
 .b-cursive {
     font-style: italic;
     font-weight: 100;
 }
+
 
 // link
 .b-link {
@@ -75,6 +79,7 @@ body {
     }
 }
 
+
 // not found block
 .b-not-found {
     background-color: $light-gray;
@@ -87,6 +92,7 @@ body {
         margin-top: 10px;
     }
 }
+
 
 // when click on add / remove from cart
 .b-cart-message {
@@ -110,40 +116,6 @@ body {
         color: $warning;
     }
 }
-
-.b-current-menu-item,
-.b-menu-item {
-    position: relative;
-
-    &:after {
-        content: "";
-        position: absolute;
-        background-color: $primary;
-        bottom: 0;
-        left: 0;
-        height: 2px;
-        width: 0;
-        transition: 0.25s linear;
-    }
-
-    &:hover{
-        &:after {
-            width: 100%;
-            right: 0;
-            left: auto;
-        }
-    }
-}
-
-
-.b-current-menu-item {
-    &:after {
-        width: 100%;
-        right: 0;
-        left: auto;
-    }
-}
-
 
 
 /*==============================
@@ -176,6 +148,7 @@ body {
             background: transparent;
         }
     }
+
 
     // list
     &__list {
@@ -214,13 +187,57 @@ body {
                 padding: 5px 15px;
                 position: relative;
                 color: $primary;
-
             }
         }
     }
 }
 
-// icon
+
+/*==============================
+    MENU ITEM
+==============================*/
+
+
+// menu item classes (Navbar.js)
+.menu-item-active,
+.menu-item {
+    position: relative;
+
+    &:after {
+        content: "";
+        position: absolute;
+        background-color: $primary;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 0;
+        transition: 0.25s linear;
+    }
+
+    &:hover {
+        &:after {
+            width: 100%;
+            right: 0;
+            left: auto;
+        }
+    }
+}
+
+// active item
+.menu-item-active {
+    &:after {
+        width: 100%;
+        right: 0;
+        left: auto;
+    }
+}
+
+
+/*==============================
+    MENU ICON
+==============================*/
+
+
 .menu-icon {
     position: relative;
     width: 30px;
@@ -234,6 +251,7 @@ body {
     &:active {
         outline: none;
     }
+
 
     // icon elements
     span {
@@ -261,26 +279,27 @@ body {
             bottom: 0
         }
     }
-}
 
-// menu active
-.menu-icon.active {
 
-    span:nth-child(2) {
-        left: -50px;
-        opacity: 0;
-    }
+    // menu icon active
+    &.active {
 
-    span:nth-child(1) {
-        top: 11px;
-        transform: rotateZ(45deg);
-        width: 100%;
-    }
+        span:nth-child(2) {
+            left: -50px;
+            opacity: 0;
+        }
 
-    span:nth-child(3) {
-        bottom: 11px;
-        transform: rotateZ(-45deg);
-        width: 100%;
+        span:nth-child(1) {
+            top: 11px;
+            transform: rotateZ(45deg);
+            width: 100%;
+        }
+
+        span:nth-child(3) {
+            bottom: 11px;
+            transform: rotateZ(-45deg);
+            width: 100%;
+        }
     }
 }
 
@@ -358,17 +377,20 @@ body {
     background-color: $light-gray;
     padding-bottom: 25px;
 
+
     // style for inCart = true
     &.in-cart {
         background-color: $dark;
         color: $light;
     }
 
+
     // image wrapper (for hover effect)
     &__img-wrap {
         overflow: hidden;
         display: block;
     }
+
 
     // image
     &__img {
@@ -381,11 +403,13 @@ body {
         }
     }
 
+
     // title
     &__title {
         padding: 25px 10px;
         text-align: center;
     }
+
 
     // link
     &__link {
@@ -395,6 +419,7 @@ body {
         color: $primary;
         align-self: center;
     }
+
 
     // buttons (remove / add) for cart
     .post-box__remove,
@@ -421,6 +446,8 @@ body {
         }
     }
 
+
+    // add to cart button
     .post-box__add {
         color: $dark;
 
@@ -429,6 +456,7 @@ body {
         }
     }
 
+    // remove from car button
     .post-box__remove {
         color: $primary;
 
@@ -446,6 +474,7 @@ body {
 
 .single {
 
+
     // title
     &__title {
         background: $light-gray;
@@ -453,6 +482,7 @@ body {
         text-align: center;
         padding: 20px;
     }
+
 
     // post info
     &__post {
@@ -464,6 +494,7 @@ body {
         background-color: $light-gray;
         padding: 20px 15px;
     }
+
 
     // tech params
     &__tech-params {
@@ -479,6 +510,7 @@ body {
             }
         }
     }
+
 
     // buttons (remove / add) for cart
     &__button--add,
@@ -499,6 +531,7 @@ body {
         }
     }
 
+
     // add button
     &__button--add {
         background-color: $success;
@@ -509,12 +542,15 @@ body {
         }
     }
 
+
     // remove button
     &__button--remove {
         background-color: $dark;
         color: $warning;
     }
 
+
+    // link tp pages (at the bottom)
     &__link {
         max-width: 200px;
         align-self: flex-end;
@@ -529,6 +565,7 @@ body {
             opacity: 0.8;
         }
     }
+
 
     // price
     &__price,
@@ -546,6 +583,7 @@ body {
 .cart {
     padding-top: 50px;
     padding-bottom: 50px;
+
 
     // remove btn
     &__remove {
@@ -646,10 +684,10 @@ body {
         }
     }
 
+    // link to page (at the bottom)
     &__link.b-link {
         align-self: flex-end;
     }
-
 }
 
 
@@ -663,11 +701,15 @@ body {
     position: relative;
     color: $primary;
 
-    .b-current-menu-item,
-    .b-menu-item {
+
+    // effect fot cart logo
+    .menu-item-active,
+    .menu-item {
         padding: 0 10px 7px;
     }
 
+
+    // amount of items in cart
     span {
         position: absolute;
         top: 0;
@@ -677,6 +719,25 @@ body {
     }
 }
 
+
+/*==============================
+    LOADING
+==============================*/
+
+
+.loading {
+    text-align: center;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    background-color: #eee;
+    z-index: 100;
+}
 
 /*==============================
     FOOTER

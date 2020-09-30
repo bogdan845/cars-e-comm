@@ -2,43 +2,42 @@ import React from "react"
 
 // banner
 import Banner from "../components/Banner";
-
 // title
 import Title from "../components/Title";
-
 // filter
-import Filter from "../components/Filter";
-
+import Filters from "../components/Filters";
 // post
-import Post from "../components/Post";
-
+import PostPreview from "../components/PostPreview";
 // styled banner
 import StyledHero from "../components/StyledHero";
-
 // page image
-// import pageImg from "../images/cars-page.jpg"
 import pageImg from "../images/cars-page.jpg"
-
 // context
 import {CarsContext} from "../context";
+// link
 import {Link} from "react-router-dom";
+import Loading from "../components/Loading";
+
 
 class Posts extends React.Component {
-
     static contextType = CarsContext;
 
+
     render() {
-
-        const {sorted: getData} = this.context;
-
+        const {
+            isLoading,
+            sorted: getData
+        } = this.context;
         const getPosts = getData.map( item => {
             return (
-                <Post key={item.id} data={item}/>
+                <PostPreview key={item.id} data={item}/>
             );
         })
 
+
         return (
             <main>
+                {isLoading ? <Loading/> : ""}
 
                 <StyledHero className="mb-5" img={pageImg}>
                     <Banner
@@ -55,11 +54,10 @@ class Posts extends React.Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-3 col-sm-12">
-                                <Filter/>
+                                <Filters/>
                             </div>
 
                             <div className="col-md-9 col-sm-12">
-
                                 {getPosts.length === 0 ?
                                     <div className="col b-not-found">
                                         <p>Sorry but there is no result for your search</p>
@@ -70,9 +68,7 @@ class Posts extends React.Component {
                                         {getPosts}
                                     </div>
                                 }
-
                             </div>
-
                         </div>
                     </div>
                 </section>

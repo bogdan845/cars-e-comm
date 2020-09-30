@@ -1,5 +1,6 @@
 import React from "react"
 
+
 const Hero = ({children, heroStyle}) => {
     return (
         <section className={heroStyle}>
@@ -7,6 +8,7 @@ const Hero = ({children, heroStyle}) => {
         </section>
     )
 }
+
 
 // setting default props if we forget pass className
 Hero.defaultProps = {

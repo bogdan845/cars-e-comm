@@ -3,6 +3,7 @@ import React from "react"
 // title
 import Title from "../components/Title";
 
+
 const AboutUs = () => {
     return (
         <section className="b-section about">

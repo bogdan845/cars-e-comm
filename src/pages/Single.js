@@ -2,15 +2,12 @@ import React from "react";
 
 // link
 import {Link} from "react-router-dom";
-
 // context
 import {CarsContext} from "../context";
-
-// link
+import Loading from "../components/Loading";
 
 
 class Single extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -20,9 +17,10 @@ class Single extends React.Component {
 
     static contextType = CarsContext;
 
-    render() {
 
+    render() {
         const {
+            isLoading,
             getPostBySlug,
             handleAddToCart,
             handleRemoveFromCart
@@ -67,12 +65,15 @@ class Single extends React.Component {
 
         return (
             <main className="single py-5">
+                {isLoading ? <Loading/> : ""}
+
                 <div className="container">
                     <div className="row">
-                        <div className="col">
 
+                        <div className="col">
                             <h3 className="single__title">{mark}: <span className="b-cursive">{model}</span></h3>
-                            <img className="img-fluid" src={images[0]} alt={mark +": "+ model}/>
+                            <img className="img-fluid" src={images[0]} alt={mark + ": " + model}/>
+
                             <div className="single__post">
                                 <p>{description}</p>
 
@@ -97,41 +98,43 @@ class Single extends React.Component {
                                     </li>
                                 </ul>
 
-                                {cost ? <h5 className="single__price">Price: <span className="font-italic">{cost.toLocaleString()} $</span></h5> : ""}
+                                {cost ?
+                                    <h5 className="single__price">Price:
+                                        <span className="font-italic"> {cost.toLocaleString()} $</span>
+                                    </h5> : ""
+                                }
 
-                                <h5 className="single__availability">
-                                    Availability:
+                                <h5 className="single__availability">Availability:
                                     {isAvailable ?
-                                        <span className="font-italic text-primary"> Yes</span> :
+                                        <span className="font-italic text-primary"> Yes</span>
+                                        :
                                         <span className="font-italic text-warning"> Not Available</span>
                                     }
                                 </h5>
 
                                 {inCart ?
-                                        <button
-                                            disabled={isAvailable ? false : true}
+                                    <button disabled={isAvailable ? false : true}
                                             type="button"
                                             className="single__button--remove"
                                             onClick={() => handleRemoveFromCart(id)}
-                                        >
-                                            Remove from cart
-                                        </button> :
-
-                                        <button
-                                            disabled={isAvailable ? false : true}
+                                    >
+                                        Remove from cart
+                                    </button>
+                                    :
+                                    <button disabled={isAvailable ? false : true}
                                             type="button"
                                             className="single__button--add"
                                             onClick={() => handleAddToCart(id)}
-                                        >
-                                            Add to cart
-                                        </button>
+                                    >
+                                        Add to cart
+                                    </button>
                                 }
 
                                 <Link className="single__link" to="/cars">Back to cars</Link>
                                 <Link className="single__link" to="/cart">Open cart</Link>
-
                             </div>
                         </div>
+
                     </div>
                 </div>
             </main>

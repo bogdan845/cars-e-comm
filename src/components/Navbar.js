@@ -1,23 +1,25 @@
 import React from "react";
+
+// link and match
 import {Link, useRouteMatch} from "react-router-dom"
+// icon
 import {FaShoppingBag} from "react-icons/fa";
-
-// hook for context
+// hook
 import {useContext} from "react";
-
 // context
 import {CarsContext} from "../context";
 
 
-// active menu item
+// custom links for menu item
 const OldSchoolMenuLink = ({to, activeOnlyWhenExact, label, onClick, children}) => {
     let match = useRouteMatch({
         path: to,
         exact: activeOnlyWhenExact
     });
 
+
     return (
-        <Link className={match ? "b-current-menu-item" : "b-menu-item"}
+        <Link className={match ? "menu-item-active" : "menu-item"}
               to={to}
               onClick={onClick}
         >
@@ -28,11 +30,9 @@ const OldSchoolMenuLink = ({to, activeOnlyWhenExact, label, onClick, children}) 
 }
 
 
-// component
+// main component
 const Navbar = () => {
-
     const context = useContext(CarsContext);
-
     const {
         countCartItems,
         openCloseMenu,
@@ -43,11 +43,10 @@ const Navbar = () => {
 
     return (
         <header className="header py-3">
-
             <div className="container">
                 <div className="row align-items-center">
-                    <div className="col-8 position-static">
 
+                    <div className="col-8 position-static">
                         <button
                             onClick={openCloseMenu}
                             className={menuOpen ? "active menu-icon d-md-none" : "menu-icon d-md-none"}>
@@ -71,23 +70,25 @@ const Navbar = () => {
                                     <OldSchoolMenuLink
                                         label="Cars"
                                         to="/cars"
-                                        onClick={isMobileNav ? openCloseMenu: null}
+                                        onClick={isMobileNav ? openCloseMenu : null}
                                     />
                                 </li>
                             </ul>
                         </nav>
                     </div>
+
                     <div className="col-4 text-right">
                         <span className="cart-link">
                             <OldSchoolMenuLink
                                 to="/cart"
-                                onClick={ isMobileNav && menuOpen ? openCloseMenu : null }
+                                onClick={isMobileNav && menuOpen ? openCloseMenu : null}
                             >
                                 <FaShoppingBag/>
                                 <span>{countCartItems}</span>
                             </OldSchoolMenuLink>
                         </span>
                     </div>
+
                 </div>
             </div>
         </header>
