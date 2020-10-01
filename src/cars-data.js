@@ -730,154 +730,148 @@ export default  {
                 "https://cdn.motor1.com/images/mgl/QEjA9/s1/nissan-gt-r50-by-italdesign.jpg",
                 "https://cdn.motor1.com/images/mgl/qNALJ/s1/nissan-gt-r50-by-italdesign.jpg"
             ]
+        },
+        {
+            "fields": {
+                "id": 10,
+                "mark": "Toyota",
+                "model": "Camry",
+                "slug": "toyota-camry",
+                "description": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.",
+                "country": "Japan",
+                "isAvailable": true,
+                "featured": false,
+                "inCart": false,
+                "amount": 0,
+                "total": 0,
+                "cost": 300000
+            },
+
+            "techParams": {
+                "engine": "4.0-liter Flat Six",
+                "horsepower": "520 hp",
+                "acceleration": "3.2",
+                "maxSpeed": "312 mph"
+            },
+
+            "images": [
+                "https://cdn.motor1.com/images/mgl/gWovw/s1/2018-toyota-camry.jpg",
+                "https://cdn.motor1.com/images/mgl/jAyNo/s1/camry-teaser-9a32fba7171e5c1cb4430c5b06deba85c3d92cbb.jpg"
+            ]
+        },
+        {
+            "fields": {
+                "id": 11,
+                "mark": "Lamborghini",
+                "model": "Huracan Evo",
+                "slug": "lamborghini-huracan-evo",
+                "description": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.",
+                "country": "Italy",
+                "isAvailable": true,
+                "featured": true,
+                "inCart": false,
+                "amount": 0,
+                "total": 0,
+                "cost": 247000
+            },
+
+            "techParams": {
+                "engine": "4.0-liter Flat Six",
+                "horsepower": "520 hp",
+                "acceleration": "3.2",
+                "maxSpeed": "312 mph"
+            },
+
+            "images": [
+                "https://cdn.motor1.com/images/mgl/LpX0m/s1/lamborghini-huracan-evo-by-novitec.jpg",
+                "https://cdn.motor1.com/images/mgl/y03ml/s1/lamborghini-huracan-evo-by-novitec.jpg"
+            ]
+        },
+
+        {
+            "fields": {
+                "id": 13,
+                "mark": "BMW",
+                "model": "M 5",
+                "slug": "bmw-m5",
+                "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.",
+                "country": "Germany",
+                "isAvailable": false,
+                "featured": false,
+                "inCart": false,
+                "amount": 0,
+                "total": 0,
+                "cost": 119995
+            },
+
+            "techParams": {
+                "engine": "4.0-liter Flat Six",
+                "horsepower": "520 hp",
+                "acceleration": "3.2",
+                "maxSpeed": "312 mph"
+            },
+
+            "images": [
+                "https://cdn.motor1.com/images/mgl/2yrnB/s1/2018-bmw-m550i-xdrive-first-drive.jpg",
+                "https://cdn.motor1.com/images/mgl/AVRAP/s1/2018-bmw-m550i-xdrive-first-drive.jpg"
+            ]
+        },
+        {
+            "fields": {
+                "id": 14,
+                "mark": "Ferrari",
+                "model": "SF90 Stradale",
+                "slug": "ferrari-sf90-stradale",
+                "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.",
+                "country": "Italy",
+                "isAvailable": false,
+                "featured": false,
+                "inCart": false,
+                "amount": 0,
+                "total": 0,
+                "cost": 600000
+            },
+
+            "techParams": {
+                "engine": "4.0-liter Flat Six",
+                "horsepower": "520 hp",
+                "acceleration": "3.2",
+                "maxSpeed": "312 mph"
+            },
+
+            "images": [
+                "https://cdn.motor1.com/images/mgl/0x6J3/s1/ferrari-sf90-stradale.jpg",
+                "https://cdn.motor1.com/images/mgl/7wzep/s1/ferrari-sf90-stradale.jpg"
+            ]
+        },
+
+        {
+            "fields": {
+                "id": 15,
+                "mark": "Porsche",
+                "model": "718 Boxster GTS",
+                "slug": "porsche-718-boxster-gts",
+                "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.",
+                "country": "Germany",
+                "isAvailable": false,
+                "featured": false,
+                "inCart": false,
+                "amount": 0,
+                "total": 0,
+                "cost": 72000
+            },
+
+            "techParams": {
+                "engine": "4.0-liter Flat Six",
+                "horsepower": "520 hp",
+                "acceleration": "3.2",
+                "maxSpeed": "312 mph"
+            },
+
+            "images": [
+                "https://cdn.motor1.com/images/mgl/Wzr7o/s1/2018-porsche-718-boxster-gts-configurator.jpg",
+                "https://cdn.motor1.com/images/mgl/2162E/s1/2018-porsche-718-boxster-gts-configurator.jpg"
+            ]
         }
-
-
-        // {
-        //     "fields": {
-        //         "id": 10,
-        //         "mark": "Toyota",
-        //         "model": "Camry",
-        //         "slug": "toyota-camry",
-        //         "description": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.",
-        //         "country": "Japan",
-        //         "isAvailable": true,
-        //         "featured": false,
-        //         "inCart": false,
-        //         "amount": 0,
-        //         "total": 0,
-        //         "cost": 300000
-        //     },
-        //
-        //     "techParams": {
-        //         "engine": "4.0-liter Flat Six",
-        //         "horsepower": "520 hp",
-        //         "acceleration": "3.2",
-        //         "maxSpeed": "312 mph"
-        //     },
-        //
-        //     "images": [
-        //         "https://cdn.motor1.com/images/mgl/gWovw/s1/2018-toyota-camry.jpg",
-        //         "https://cdn.motor1.com/images/mgl/jAyNo/s1/camry-teaser-9a32fba7171e5c1cb4430c5b06deba85c3d92cbb.jpg"
-        //     ]
-        // },
-        // {
-        //     "fields": {
-        //         "id": 11,
-        //         "mark": "Lamborghini",
-        //         "model": "Huracan Evo",
-        //         "slug": "lamborghini-huracan-evo",
-        //         "description": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.",
-        //         "country": "Italy",
-        //         "isAvailable": true,
-        //         "featured": true,
-        //         "inCart": false,
-        //         "amount": 0,
-        //         "total": 0,
-        //         "cost": 247000
-        //     },
-        //
-        //     "techParams": {
-        //         "engine": "4.0-liter Flat Six",
-        //         "horsepower": "520 hp",
-        //         "acceleration": "3.2",
-        //         "maxSpeed": "312 mph"
-        //     },
-        //
-        //     "images": [
-        //         "https://cdn.motor1.com/images/mgl/LpX0m/s1/lamborghini-huracan-evo-by-novitec.jpg",
-        //         "https://cdn.motor1.com/images/mgl/y03ml/s1/lamborghini-huracan-evo-by-novitec.jpg"
-        //     ]
-        // },
-
-        // {
-        //     "fields": {
-        //         "id": 13,
-        //         "mark": "BMW",
-        //         "model": "M 5",
-        //         "slug": "bmw-m5",
-        //         "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.",
-        //         "country": "Germany",
-        //         "isAvailable": false,
-        //         "featured": false,
-        //         "inCart": false,
-        //         "amount": 0,
-        //         "total": 0,
-        //         "cost": 119995
-        //     },
-        //
-        //     "techParams": {
-        //         "engine": "4.0-liter Flat Six",
-        //         "horsepower": "520 hp",
-        //         "acceleration": "3.2",
-        //         "maxSpeed": "312 mph"
-        //     },
-        //
-        //     "images": [
-        //         "https://cdn.motor1.com/images/mgl/2yrnB/s1/2018-bmw-m550i-xdrive-first-drive.jpg",
-        //         "https://cdn.motor1.com/images/mgl/AVRAP/s1/2018-bmw-m550i-xdrive-first-drive.jpg"
-        //     ]
-        // },
-        // {
-        //     "fields": {
-        //         "id": 14,
-        //         "mark": "Ferrari",
-        //         "model": "SF90 Stradale",
-        //         "slug": "ferrari-sf90-stradale",
-        //         "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.",
-        //         "country": "Italy",
-        //         "isAvailable": false,
-        //         "featured": false,
-        //         "inCart": false,
-        //         "amount": 0,
-        //         "total": 0,
-        //         "cost": 600000
-        //     },
-        //
-        //     "techParams": {
-        //         "engine": "4.0-liter Flat Six",
-        //         "horsepower": "520 hp",
-        //         "acceleration": "3.2",
-        //         "maxSpeed": "312 mph"
-        //     },
-        //
-        //     "images": [
-        //         "https://cdn.motor1.com/images/mgl/0x6J3/s1/ferrari-sf90-stradale.jpg",
-        //         "https://cdn.motor1.com/images/mgl/7wzep/s1/ferrari-sf90-stradale.jpg"
-        //     ]
-        // },
-        //
-        // {
-        //     "fields": {
-        //         "id": 15,
-        //         "mark": "Porsche",
-        //         "model": "718 Boxster GTS",
-        //         "slug": "porsche-718-boxster-gts",
-        //         "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.",
-        //         "country": "Germany",
-        //         "isAvailable": false,
-        //         "featured": false,
-        //         "inCart": false,
-        //         "amount": 0,
-        //         "total": 0,
-        //         "cost": 72000
-        //     },
-        //
-        //     "techParams": {
-        //         "engine": "4.0-liter Flat Six",
-        //         "horsepower": "520 hp",
-        //         "acceleration": "3.2",
-        //         "maxSpeed": "312 mph"
-        //     },
-        //
-        //     "images": [
-        //         "https://cdn.motor1.com/images/mgl/Wzr7o/s1/2018-porsche-718-boxster-gts-configurator.jpg",
-        //         "https://cdn.motor1.com/images/mgl/2162E/s1/2018-porsche-718-boxster-gts-configurator.jpg"
-        //     ]
-        // }
     ]
 }
-
-
-
-

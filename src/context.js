@@ -1,15 +1,10 @@
 import React from "react"
 
-// cars data
-// import carsData from "./cars-data";
-
 
 // context
 const CarsContext = React.createContext();
 
-
 class CarsProvider extends React.Component {
-
     constructor() {
         super()
         this.state = {
@@ -17,6 +12,7 @@ class CarsProvider extends React.Component {
             featured: [],
             sorted: [],
             isLoading: true,
+            isError: false,
 
             // cart
             countCartItems: 0,
@@ -32,16 +28,16 @@ class CarsProvider extends React.Component {
             availability: false
         }
 
-
+        // timer (for setTimeout when window resize)
         this.timer = null;
 
+        // binding for getting state
         this.setNavbarStyle = this.setNavbarStyle.bind(this);
         this.applyNavbarStyle = this.applyNavbarStyle.bind(this);
     }
 
 
     componentDidMount() {
-
         fetch("https://my-json-server.typicode.com/bogdan845/cars-e-comm-data/db")
             .then(response => response.json())
             .then(data => {
@@ -51,10 +47,12 @@ class CarsProvider extends React.Component {
                     posts: getData,
                     featured: getFeatured,
                     sorted: getData,
+                    isLoading: false,
                 });
             })
-            .then( data => {
-                this.setState({isLoading: false});
+            .catch((err) => {
+                console.log(err);
+                this.setState({isError: true})
             });
 
         window.addEventListener("resize", this.applyNavbarStyle);
@@ -66,11 +64,13 @@ class CarsProvider extends React.Component {
     //     console.log(this.state.isMobileNav);
     // }
 
-
+    // remove eventListener when unmount
     componentWillUnmount() {
         window.removeEventListener("resize", this.applyNavbarStyle);
     }
 
+
+    // set style for Navbar
     setNavbarStyle = () => {
         this.setState({
             isMobileNav: window.innerWidth < 768 ? true : false,
@@ -79,24 +79,22 @@ class CarsProvider extends React.Component {
     }
 
 
+    // apply style for Navbar
     applyNavbarStyle = () => {
         let _this = this;
-
         if (this.timer) {
             clearTimeout(this.timer);
         }
-
         this.timer = setTimeout(() => {
             _this.setNavbarStyle();
         }, 100);
     }
 
 
+    // structuring data for further usage
     prepareData = (data) => {
         const dataStructure = data.map(item => {
-
             const images = item.images.map(image => image);
-
             const readyData = {
                 ...item.fields,
                 ...item.techParams,
@@ -108,6 +106,7 @@ class CarsProvider extends React.Component {
     }
 
 
+    // close / open menu
     openCloseMenu = () => {
         this.setState(prevState => {
             return {
@@ -117,12 +116,14 @@ class CarsProvider extends React.Component {
     }
 
 
+    // for Single page (Single.js). Displaying clicked post on single page
     getPostBySlug = (slug) => {
         const getPost = this.state.posts.find(item => item.slug === slug);
         return getPost;
     }
 
 
+    // applying selected filters (Filter.js)
     handleChange = (e) => {
         const {country} = this.state;
         let setCountries = country;
@@ -145,6 +146,7 @@ class CarsProvider extends React.Component {
     }
 
 
+    // displaying posts that matches filter values
     filter = () => {
         const {
             posts: getData,
@@ -181,12 +183,14 @@ class CarsProvider extends React.Component {
     }
 
 
+    // get post id when clicked on it
     getItemById = (id) => {
         const item = this.state.posts.find(item => item.id === id);
         return item;
     }
 
 
+    // message when item is added/removed from cart
     deleteAddToCartMessage = (id, className, text, mark, model) => {
         const createMessage = document.createElement('div');
         createMessage.className = `b-cart-message ${className}`;
@@ -200,6 +204,7 @@ class CarsProvider extends React.Component {
     }
 
 
+    // add item to cart
     handleAddToCart = (id) => {
         const {posts: getData} = this.state;
         const index = getData.indexOf(this.getItemById(id))
@@ -221,6 +226,7 @@ class CarsProvider extends React.Component {
     }
 
 
+    // remove item from cart
     handleRemoveFromCart = (id) => {
         const {posts: getData} = this.state;
         const index = getData.indexOf(this.getItemById(id))
@@ -240,6 +246,7 @@ class CarsProvider extends React.Component {
     }
 
 
+    // increase amount of item
     handleIncreaseAmount = (id) => {
         const {posts: getData} = this.state;
         const index = getData.indexOf(this.getItemById(id));
@@ -254,6 +261,7 @@ class CarsProvider extends React.Component {
     }
 
 
+    // decrease amount of item
     handleDecreaseAmount = (id) => {
         const {posts: getData} = this.state;
         const index = getData.indexOf(this.getItemById(id));
@@ -273,6 +281,7 @@ class CarsProvider extends React.Component {
     }
 
 
+    // count cost of all items in cart
     countTotalCost = () => {
         let total = 0;
         this.state.posts.map(item => total += item.amount * item.cost);
@@ -282,6 +291,7 @@ class CarsProvider extends React.Component {
     }
 
 
+    // remove all item from cart
     handleClearCart = () => {
         let {posts: getData} = this.state;
 

@@ -16,6 +16,7 @@ import pageImg from "../images/cars-page.jpg"
 import {CarsContext} from "../context";
 // link
 import {Link} from "react-router-dom";
+// component
 import Loading from "../components/Loading";
 
 
@@ -26,6 +27,7 @@ class Posts extends React.Component {
     render() {
         const {
             isLoading,
+            isError,
             sorted: getData
         } = this.context;
         const getPosts = getData.map( item => {
@@ -37,7 +39,7 @@ class Posts extends React.Component {
 
         return (
             <main>
-                {isLoading ? <Loading/> : ""}
+                {isLoading ? <Loading error={isError}/> : ""}
 
                 <StyledHero className="mb-5" img={pageImg}>
                     <Banner

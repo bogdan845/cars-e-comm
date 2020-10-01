@@ -12,7 +12,6 @@ import Posts from "./pages/Posts";
 import Single from "./pages/Single";
 import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
-
 // footer
 import Footer from "./components/Footer";
 

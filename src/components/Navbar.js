@@ -17,7 +17,6 @@ const OldSchoolMenuLink = ({to, activeOnlyWhenExact, label, onClick, children}) 
         exact: activeOnlyWhenExact
     });
 
-
     return (
         <Link className={match ? "menu-item-active" : "menu-item"}
               to={to}
@@ -37,9 +36,15 @@ const Navbar = () => {
         countCartItems,
         openCloseMenu,
         menuOpen,
-        isMobileNav
+        isMobileNav,
     } = context;
 
+
+    if (menuOpen) {
+        document.body.classList.add("menu-open")
+    } else {
+        document.body.classList.remove("menu-open");
+    }
 
     return (
         <header className="header py-3">

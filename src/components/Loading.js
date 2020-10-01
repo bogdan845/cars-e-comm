@@ -1,9 +1,17 @@
 import React from "react"
 
-const Loading = () => {
+
+const Loading = ({error}) => {
     return (
         <div className="loading">
-            <h4>Loading data</h4>
+
+            <div className="loading__box">
+                {error ?
+                    <h4>Something goes wrong</h4>
+                    :
+                    <h4>Loading</h4>
+                }
+            </div>
         </div>
     );
 }

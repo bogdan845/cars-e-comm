@@ -4,6 +4,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 // context
 import {CarsContext} from "../context";
+// loading
 import Loading from "../components/Loading";
 
 
@@ -21,6 +22,7 @@ class Single extends React.Component {
     render() {
         const {
             isLoading,
+            isError,
             getPostBySlug,
             handleAddToCart,
             handleRemoveFromCart
@@ -30,20 +32,16 @@ class Single extends React.Component {
 
         if (!post) {
             return (
-                <main>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col">
-                                <div className="b-not-found">
-                                    <p className="text-dark">Post you looking was not found</p>
-                                    <Link className="b-link" to="/cars">Back to cars page</Link>
-                                </div>
-                            </div>
-                        </div>
+                <>
+                    {isLoading ? <Loading error={isError}/> : ""}
+                    <div className="b-not-found">
+                        <p className="text-dark">Post you looking for was not found</p>
+                        <Link className="b-link" to="/cars">Back to cars page</Link>
                     </div>
-                </main>
+                </>
             )
         }
+
 
         const {
             id,
@@ -53,10 +51,8 @@ class Single extends React.Component {
             description,
             engine,
             horsepower,
-            torque,
             acceleration,
             maxSpeed,
-            transmission,
             isAvailable,
             inCart,
             cost,
@@ -65,7 +61,7 @@ class Single extends React.Component {
 
         return (
             <main className="single py-5">
-                {isLoading ? <Loading/> : ""}
+                {isLoading ? <Loading error={isError}/> : ""}
 
                 <div className="container">
                     <div className="row">
@@ -85,16 +81,10 @@ class Single extends React.Component {
                                         <span>Horsepower: </span>{horsepower ? horsepower : "Not specified"}
                                     </li>
                                     <li>
-                                        <span>Torque: </span>{torque ? torque : "Not specified"}
-                                    </li>
-                                    <li>
                                         <span>Acceleration: </span>{acceleration ? acceleration + " (0-60 m/ph)" : "Not specified"}
                                     </li>
                                     <li>
                                         <span>Max Speed: </span>{maxSpeed ? maxSpeed + "m/ph" : "Not specified"}
-                                    </li>
-                                    <li>
-                                        <span>Transmission: </span> {transmission ? transmission : "Not specified"}
                                     </li>
                                 </ul>
 

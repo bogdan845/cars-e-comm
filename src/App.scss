@@ -14,6 +14,10 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+
+    &.menu-open {
+        overflow-y: hidden;
+    }
 }
 
 
@@ -60,7 +64,7 @@ body {
 
 // link
 .b-link {
-    max-width: 200px;
+    max-width: 250px;
     display: inline-block;
     padding: 5px 20px;
     font-size: 20px;
@@ -86,7 +90,9 @@ body {
     color: $dark;
     font-size: 24px;
     text-align: center;
-    padding: 30px 0;
+    padding: 30px 15px;
+    margin: 0 auto;
+    max-width: 1140px;
 
     .b-link {
         margin-top: 10px;
@@ -118,6 +124,67 @@ body {
 }
 
 
+@keyframes sliding-border {
+
+    0% {
+        top: 0;
+        height: 100%;
+        width: 2px;
+    }
+
+    12.5% {
+        top: 0;
+        left: 0;
+        right: auto;
+        width: 2px;
+        height: 2px;
+    }
+
+    25% {
+        top: 0;
+        width: 100%;
+    }
+
+    37.5% {
+        top: 0;
+        left: auto;
+        right: 0;
+        width: 2px;
+        height: 2px;
+    }
+
+    50% {
+        top: 0;
+        width: 2px;
+        height: 100%;
+    }
+
+    62.5% {
+        top: 100%;
+        right: 0;
+        left: auto;
+        width: 2px;
+        height: 2px;
+    }
+
+    75% {
+        top: 100%;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        left: auto;
+        right: 0;
+    }
+
+    87.5% {
+        width: 2px;
+        height: 2px;
+        right: 100%;
+        top: 100%;
+    }
+}
+
+
 /*==============================
     MENU
 ==============================*/
@@ -129,14 +196,16 @@ body {
     left: -100%;
     width: 100%;
     height: calc(100vh - 61px);
-    top: 75px;
+    top: 77px;
     transition: 0.25s ease-in;
+    overflow-y: auto;
 
     @include media-breakpoint-up(md) {
         position: static;
         width: auto;
         height: auto;
         transition: 0s;
+        overflow-y: visible;
     }
 
     &.active {
@@ -327,14 +396,33 @@ body {
 
 
 .banner {
+    padding: 15px 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    max-width: 560px;
 
+
+    // banner content
     &__content {
-        padding: 15px 15px 30px;
-        max-width: 500px;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
+        padding: 20px 15px 30px;
         text-align: center;
-        color: $light
+        color: $light;
+        position: relative;
+
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: $primary;
+            height: 100%;
+            width: 2px;
+            animation: 7s sliding-border linear infinite;
+        }
+
+        &:hover:after {
+            background: linear-gradient(to right, $light, $primary);
+        }
     }
 }
 
@@ -735,9 +823,31 @@ body {
     height: 100vh;
     width: 100%;
     top: 0;
-    background-color: #eee;
     z-index: 100;
+    background: linear-gradient(to right, $info, $dark);
+    color: $light;
+    padding: 15px;
+
+
+    &__box {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        padding: 50px 15px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: $light;
+            height: 100%;
+            width: 2px;
+            animation: 7s sliding-border linear infinite;
+        }
+    }
 }
+
 
 /*==============================
     FOOTER

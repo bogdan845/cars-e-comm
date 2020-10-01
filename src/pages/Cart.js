@@ -4,9 +4,10 @@ import React from "react";
 import {Link, NavLink} from "react-router-dom";
 // cartItem
 import CartItem from "../components/CartItem";
+//loading
+import Loading from "../components/Loading";
 // context
 import {CarsContext} from "../context";
-import Loading from "../components/Loading";
 
 
 class Cart extends React.Component {
@@ -17,6 +18,7 @@ class Cart extends React.Component {
         const {
             posts: getData,
             isLoading,
+            isError,
             totalCost,
             handleClearCart,
         } = this.context;
@@ -30,16 +32,14 @@ class Cart extends React.Component {
 
         return (
             <main className="cart">
-                {isLoading ? <Loading/> : ""}
+                {isLoading ? <Loading error={isError}/> : ""}
 
                 <div className="container">
 
                     {totalCost === 0 ?
-                        <div className="row ">
-                            <div className="col-12 b-not-found">
-                                <p>Your cart is empty</p>
-                                <Link className="b-link" to="/cars">Back to cars</Link>
-                            </div>
+                        <div className="b-not-found">
+                            <p>Your cart is empty</p>
+                            <Link className="b-link" to="/cars">Back to cars</Link>
                         </div>
                         :
                         getInCartItems
