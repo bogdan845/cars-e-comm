@@ -44,7 +44,7 @@ const PostPreview = ({data}) => {
                     </button>
                 }
 
-                <Link className="post-box__img-wrap" to={`cars/${data.slug}`}>
+                <Link className="post-box__img-wrap" to={`/cars/${data.slug}`}>
                     <img src={data.images[0]} className="post-box__img" alt={data.model}/>
                 </Link>
 
