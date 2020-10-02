@@ -59,7 +59,7 @@ class Cart extends React.Component {
                             }
 
                             {totalCost !== 0 ?
-                                <NavLink className="b-link cart__link" to="cars">back to cars</NavLink> : ""}
+                                <NavLink className="b-link cart__link" to="/cars">back to cars</NavLink> : ""}
                         </div>
                     </div>
 

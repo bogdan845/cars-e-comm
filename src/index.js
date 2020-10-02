@@ -6,7 +6,7 @@ import App from './App';
 // service worker
 import * as serviceWorker from './serviceWorker';
 // router
-import {BrowserRouter as Router} from "react-router-dom";
+import {HashRouter as Router} from "react-router-dom";
 // context
 import {CarsProvider} from "./context";
 // scrollToTop

@@ -44,7 +44,7 @@ const PostPreview = ({data}) => {
                     </button>
                 }
 
-                <Link className="post-box__img-wrap" to={`cars/${data.slug}`}>
+                <Link className="post-box__img-wrap" to={`/cars/${data.slug}`}>
                     <img src={data.images[0]} className="post-box__img" alt={data.model}/>
                 </Link>
 
@@ -52,7 +52,7 @@ const PostPreview = ({data}) => {
                     <span className="b-cursive"> {data.model}</span>
                 </h5>
 
-                <Link className="post-box__link" to={`cars/${data.slug}`}>Read more</Link>
+                <Link className="post-box__link" to={`/cars/${data.slug}`}>Read more</Link>
 
             </div>
         </div>

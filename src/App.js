@@ -22,10 +22,10 @@ function App() {
             <Navbar/>
             <Switch>
                 <Route exact path="/cars-e-comm" component={Home}/>
-                <Route exact path="cars-e-comm/cars" component={Posts}/>
-                <Route exact path="cars-e-comm/cars/:slug" component={Single}/>
-                <Route exact path="cars-e-comm/cart" component={Cart}/>
-                <Route exact path="" component={NotFound}/>
+                <Route exact path="/cars" component={Posts}/>
+                <Route exact path="/cars/:slug" component={Single}/>
+                <Route exact path="/cart" component={Cart}/>
+                <Route component={NotFound}/>
             </Switch>
             <Footer/>
         </>
