@@ -25,7 +25,7 @@ class FeaturedPosts extends React.Component {
 
         return (
             <section className="b-section featured">
-                <Title title="FeaturedPosts cars"/>
+                <Title title="Featured cars"/>
                 <div className="container">
                     <div className="row">
                         {setFeatured}
