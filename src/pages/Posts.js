@@ -44,9 +44,8 @@ class Posts extends React.Component {
                 <StyledHero className="mb-5" img={pageImg}>
                     <Banner
                         title="Nulla tellus"
-                        link="home"
                     >
-                        <Link className="b-link" to="/">home page</Link>
+                        <Link className="b-link" to="/cars-e-comm">home page</Link>
                     </Banner>
                 </StyledHero>
 

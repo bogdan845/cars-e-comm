@@ -65,7 +65,7 @@ const Navbar = () => {
                                 <li>
                                     <OldSchoolMenuLink
                                         label="Home"
-                                        to="/"
+                                        to="/cars-e-comm"
                                         onClick={isMobileNav ? openCloseMenu : null}
                                         activeOnlyWhenExact={true}
                                     />

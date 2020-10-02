@@ -21,7 +21,7 @@ function App() {
         <>
             <Navbar/>
             <Switch>
-                <Route exact path="/" component={Home}/>
+                <Route exact path="/cars-e-comm" component={Home}/>
                 <Route exact path="/cars" component={Posts}/>
                 <Route exact path="/cars/:slug" component={Single}/>
                 <Route exact path="/cart" component={Cart}/>
