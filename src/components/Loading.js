@@ -4,7 +4,6 @@ import React from "react"
 const Loading = ({error}) => {
     return (
         <div className="loading">
-
             <div className="loading__box">
                 {error ?
                     <h4>Something goes wrong</h4>

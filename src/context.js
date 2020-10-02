@@ -59,7 +59,6 @@ class CarsProvider extends React.Component {
         this.setNavbarStyle();
     }
 
-
     // componentDidUpdate(prevProps, prevState, snapshot) {
     //     console.log(this.state.isMobileNav);
     // }
