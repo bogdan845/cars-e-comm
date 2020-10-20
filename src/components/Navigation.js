@@ -30,7 +30,7 @@ const OldSchoolMenuLink = ({to, activeOnlyWhenExact, label, onClick, children}) 
 
 
 // main component
-const Navbar = () => {
+const Navigation = () => {
     const context = useContext(CarsContext);
     const {
         countCartItems,
@@ -100,4 +100,4 @@ const Navbar = () => {
     )
 }
 
-export {Navbar, OldSchoolMenuLink}
+export {Navigation, OldSchoolMenuLink}

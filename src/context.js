@@ -69,7 +69,7 @@ class CarsProvider extends React.Component {
     }
 
 
-    // set style for Navbar
+    // set style for Navigation
     setNavbarStyle = () => {
         this.setState({
             isMobileNav: window.innerWidth < 768 ? true : false,
@@ -78,7 +78,7 @@ class CarsProvider extends React.Component {
     }
 
 
-    // apply style for Navbar
+    // apply style for Navigation
     applyNavbarStyle = () => {
         let _this = this;
         if (this.timer) {

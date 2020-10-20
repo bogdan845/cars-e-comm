@@ -5,7 +5,7 @@ import './App.scss';
 // router
 import {Switch, Route} from "react-router-dom"
 // navbar
-import {Navbar} from "./components/Navbar";
+import {Navigation} from "./components/Navigation";
 // pages
 import Home from "./pages/Home";
 import Posts from "./pages/Posts";
@@ -19,7 +19,7 @@ import Footer from "./components/Footer";
 function App() {
     return (
         <>
-            <Navbar/>
+            <Navigation/>
             <Switch>
                 <Route exact path="/cars-e-comm" component={Home}/>
                 <Route exact path="/cars" component={Posts}/>

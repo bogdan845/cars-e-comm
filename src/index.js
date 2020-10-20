@@ -6,7 +6,7 @@ import App from './App';
 // service worker
 import * as serviceWorker from './serviceWorker';
 // router
-import {HashRouter as Router} from "react-router-dom";
+import {BrowserRouter as Router} from "react-router-dom";
 // context
 import {CarsProvider} from "./context";
 // scrollToTop
@@ -16,10 +16,10 @@ import ScrollToTop from "./components/ScrollToTop";
 ReactDOM.render(
     <CarsProvider>
         <Router>
-            {/*<React.StrictMode>*/}
+            <React.StrictMode>
                 <ScrollToTop/>
                 <App/>
-            {/*</React.StrictMode>*/}
+            </React.StrictMode>
         </Router>
     </CarsProvider>,
     document.getElementById('root')
