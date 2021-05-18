@@ -1,5 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+implemented (via classes, react-router):
+1. preloader
+2. fetching data from https://github.com/bogdan845/cars-e-comm-data
+3. ability to add / remove item from cart
+4. ability to increase item in cart
+5. filter by (availability, country, mark)
+6. count total cart amount
+7. single page for each product
+8. notifiaction when product added / removed from cart
+
 ## Available Scripts
 
 In the project directory, you can run:
