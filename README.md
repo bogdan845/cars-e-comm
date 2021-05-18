@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-implemented (via classes, react-router):
+implemented (via classes, react-router, react-icons, bootstrap):
 1. preloader
 2. fetching data from https://github.com/bogdan845/cars-e-comm-data
 3. ability to add / remove item from cart
